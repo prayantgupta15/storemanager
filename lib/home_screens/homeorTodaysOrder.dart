@@ -294,9 +294,10 @@ class _HomeorTodaysOrdersScreenState extends State<HomeorTodaysOrdersScreen> {
                                     ? Expanded(
                                         flex: 2,
                                         child: Text(
-                                          "ID:" +
+                                          "ID:\t" +
                                               searchList[index].assignTo +
-                                              "Name:" +
+                                              "\n" +
+                                              "Name:\t" +
                                               getBoyName(
                                                   searchList[index].assignTo),
                                           style: suffixTextStyle,

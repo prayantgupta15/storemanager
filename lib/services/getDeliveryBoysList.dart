@@ -3,8 +3,8 @@ import 'package:http/http.dart' as http;
 import 'package:storemanager/models/deliveryboy.dart';
 import 'package:storemanager/utils/utils_importer.dart';
 
-List<DeliveryBoy> list;
-getBoysList() async {
+List<DeliveryBoy> list = List<DeliveryBoy>();
+void getBoysList() async {
   print('getting delivery boy list');
   final response =
       await http.get(UtilsImporter().stringUtils.DELIVERY_BOY_LIST_URL);
@@ -22,11 +22,11 @@ getBoysList() async {
 }
 
 String getBoyName(String id) {
-  if (list.length == 0) return "NA";
+  String name = "NA";
+  print("getting name for $id");
   for (int i = 0; i < list.length; i++) {
-    if (list[i].id == id)
-      return list[i].name;
-    else
-      return " N.A.";
+    print(list[i].name);
+    if (list[i].id == id) return list[i].name;
   }
+  return name;
 }

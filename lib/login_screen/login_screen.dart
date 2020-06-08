@@ -98,13 +98,21 @@ class _LoginScreenState extends State<LoginScreen> {
         fontSize: 18.0,
         color: Theme.of(context).primaryColorDark);
     TextStyle labelTextStyle = TextStyle(
-//    color: UtilsImporter().colorUtils.greycolor,
       color: Theme.of(context).primaryColor,
       fontSize: 15,
       fontWeight: FontWeight.w700,
       fontFamily: UtilsImporter().stringUtils.HKGrotesk,
     );
-
+    TextStyle headingStyle = TextStyle(
+        fontSize: 40,
+        fontWeight: FontWeight.bold,
+        fontFamily: UtilsImporter().stringUtils.HKGrotesk);
+    TextStyle subHeadingTextStyle = TextStyle(
+      color: UtilsImporter().colorUtils.greycolor,
+      fontSize: 15,
+      fontWeight: FontWeight.w700,
+      fontFamily: UtilsImporter().stringUtils.HKGrotesk,
+    );
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColorLight,
       body: SafeArea(
@@ -112,188 +120,177 @@ class _LoginScreenState extends State<LoginScreen> {
           children: <Widget>[
             GestureDetector(
               onTap: () => FocusScope.of(context).unfocus(),
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(20, 40, 20, 10),
-                child: CustomScrollView(
-                  slivers: <Widget>[
-                    SliverList(
+              child: CustomScrollView(
+                slivers: <Widget>[
+                  SliverAppBar(
+                    backgroundColor: Theme.of(context).primaryColorLight,
+                    title: Text("Sign In", style: formTitleTextStyle),
+                    pinned: true,
+                    elevation: 0,
+                  ),
+                  SliverList(
+                    delegate: SliverChildListDelegate([
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text("Welcome", style: headingStyle),
+                            SizedBox(height: 10),
+                            Text(
+                                "Enter E-mail address and Password for Sign in",
+                                style: subHeadingTextStyle),
+                            SizedBox(height: 30),
+                          ],
+                        ),
+                      )
+                    ]),
+                  ),
+                  Form(
+                    key: _formKey,
+                    child: SliverList(
                       delegate: SliverChildListDelegate([
-                        Center(
-                          child: Text(
-                            "StoreManager",
-                            style: TextStyle(
-                                fontSize: 40,
-                                fontWeight: FontWeight.bold,
-                                fontFamily:
-                                    UtilsImporter().stringUtils.HKGrotesk),
+                        CircleAvatar(
+                          backgroundColor: Theme.of(context).primaryColor,
+                          radius: 80,
+                          child: Image(
+                            image: AssetImage(
+                                UtilsImporter().stringUtils.ICON_PATH),
+                            gaplessPlayback: true,
                           ),
                         ),
+                        SizedBox(
+                            height: MediaQuery.of(context).size.height / 30),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 40),
+                          child: TextFormField(
+                            validator: (String val) {
+                              if (val.isEmpty) return 'Value  cannot be empty';
+                            },
+                            enableInteractiveSelection: true,
+                            cursorColor: Theme.of(context).primaryColor,
+                            controller: _loginidController,
+                            textInputAction: TextInputAction.next,
+                            keyboardType: TextInputType.text,
+                            autofocus: false,
+                            focusNode: _loginFocus,
+                            onFieldSubmitted: (value) {
+//                            _loginidController.text.trim();
+                              FocusScope.of(context).requestFocus(_pwdFocus);
+                            },
+                            style: formTitleTextStyle,
+                            decoration: InputDecoration(
+                              labelText: "User ID",
+                              labelStyle: labelTextStyle,
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(20)),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 20),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 40),
+                          child: TextFormField(
+                            validator: (String val) {
+                              if (val.isEmpty) return 'Value  cannot be empty';
+                            },
+                            cursorColor: Theme.of(context).primaryColor,
+                            enableInteractiveSelection: true,
+                            controller: _pwdController,
+                            textInputAction: TextInputAction.done,
+                            keyboardType: TextInputType.text,
+                            obscureText: obscure,
+                            autofocus: false,
+                            focusNode: _pwdFocus,
+                            onFieldSubmitted: (value) {
+//                            _pwdController.text.replaceAll(" ","");
+                              _pwdFocus.unfocus();
+                            },
+                            style: formTitleTextStyle,
+                            decoration: InputDecoration(
+                              suffixIcon: IconButton(
+                                color: Theme.of(context).primaryColor,
+                                icon: obscure
+                                    ? Icon(Icons.remove_red_eye)
+                                    : Icon(MdiIcons.eyeOff),
+                                onPressed: () {
+                                  print("pressed");
+                                  obscure ? obscure = false : obscure = true;
+                                  setState(() {});
+                                },
+                              ),
+                              labelText: "Password",
+                              labelStyle: labelTextStyle,
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(20)),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                            height: MediaQuery.of(context).size.height / 30),
+                        GestureDetector(
+                          onTap: () async {
+                            _loginidController.text =
+                                _loginidController.text.replaceAll(" ", "");
+                            _pwdController.text =
+                                _pwdController.text.replaceAll(" ", "");
+                            _pwdFocus.unfocus();
+                            _loginFocus.unfocus();
+
+                            if (_formKey.currentState.validate()) {
+                              setState(() {
+                                _isLoading = true;
+                              });
+                              LoginModel loginDetails = LoginModel(
+                                  user_email: _loginidController.text,
+                                  password: _pwdController.text);
+
+                              final result = await performLogin(loginDetails);
+                              print("result: " + result.toString());
+                              if (result) {
+                                Navigator.pushReplacement(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  _isLoading = false;
+                                  return HomeScreen();
+                                }));
+                              } else {
+                                Fluttertoast.showToast(
+                                    msg: "WRONG CREDENTIALS",
+                                    toastLength: Toast.LENGTH_LONG,
+                                    gravity: ToastGravity.CENTER,
+                                    backgroundColor:
+                                        Theme.of(context).primaryColor,
+                                    textColor:
+                                        Theme.of(context).primaryColorLight);
+                                setState(() {
+                                  _isLoading = false;
+                                });
+                              }
+                            }
+                          },
+                          child: Container(
+                            margin: EdgeInsets.symmetric(horizontal: 40),
+                            width: MediaQuery.of(context).size.width / 3,
+                            height: 50,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                color: Theme.of(context).primaryColor),
+                            child: Center(
+                                child: Text(
+                              "LOGIN",
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontFamily:
+                                    UtilsImporter().stringUtils.HKGrotesk,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            )),
+                          ),
+                        )
                       ]),
                     ),
-                    Form(
-                      key: _formKey,
-                      child: SliverList(
-                        delegate: SliverChildListDelegate([
-                          SizedBox(
-                            height: 30,
-                          ),
-                          CircleAvatar(
-                            backgroundColor: Theme.of(context).primaryColorDark,
-                            radius: 80,
-                            child: Image(
-                              image: AssetImage(
-                                  UtilsImporter().stringUtils.ICON_PATH),
-                              gaplessPlayback: true,
-                            ),
-                          ),
-                          SizedBox(height: 10),
-                          Center(
-                            child: Text(
-                              "Sign In",
-                              style: TextStyle(
-                                  color: Theme.of(context).primaryColorDark,
-                                  fontSize: 30,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily:
-                                      UtilsImporter().stringUtils.HKGrotesk),
-                            ),
-                          ),
-                          SizedBox(
-                            height: MediaQuery.of(context).size.height / 30,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20),
-                            child: TextFormField(
-                              validator: (String val) {
-                                if (val.isEmpty)
-                                  return 'Value  cannot be empty';
-                              },
-                              enableInteractiveSelection: true,
-                              cursorColor: Theme.of(context).primaryColor,
-                              controller: _loginidController,
-                              textInputAction: TextInputAction.next,
-                              keyboardType: TextInputType.text,
-                              autofocus: false,
-                              focusNode: _loginFocus,
-                              onFieldSubmitted: (value) {
-//                            _loginidController.text.trim();
-                                FocusScope.of(context).requestFocus(_pwdFocus);
-                              },
-                              style: formTitleTextStyle,
-                              decoration: InputDecoration(
-                                  labelText: "User ID",
-                                  labelStyle: labelTextStyle,
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(20))),
-                            ),
-                          ),
-                          SizedBox(height: 20),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20),
-                            child: TextFormField(
-                              validator: (String val) {
-                                if (val.isEmpty)
-                                  return 'Value  cannot be empty';
-                              },
-                              cursorColor: Theme.of(context).primaryColor,
-                              enableInteractiveSelection: true,
-                              controller: _pwdController,
-                              textInputAction: TextInputAction.done,
-                              keyboardType: TextInputType.text,
-                              obscureText: obscure,
-                              autofocus: false,
-                              focusNode: _pwdFocus,
-                              onFieldSubmitted: (value) {
-//                            _pwdController.text.replaceAll(" ","");
-                                _pwdFocus.unfocus();
-                              },
-                              style: formTitleTextStyle,
-                              decoration: InputDecoration(
-                                  suffixIcon: IconButton(
-                                    color: Theme.of(context).primaryColor,
-                                    icon: obscure
-                                        ? Icon(Icons.remove_red_eye)
-                                        : Icon(MdiIcons.eyeOff),
-                                    onPressed: () {
-                                      print("pressed");
-                                      obscure
-                                          ? obscure = false
-                                          : obscure = true;
-                                      setState(() {});
-                                    },
-                                  ),
-                                  labelText: "Password",
-                                  labelStyle: labelTextStyle,
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(20))),
-                            ),
-                          ),
-                          SizedBox(
-                            height: MediaQuery.of(context).size.height / 30,
-                          ),
-                          GestureDetector(
-                            onTap: () async {
-                              _loginidController.text =
-                                  _loginidController.text.replaceAll(" ", "");
-                              _pwdController.text =
-                                  _pwdController.text.replaceAll(" ", "");
-                              _pwdFocus.unfocus();
-                              _loginFocus.unfocus();
-
-                              if (_formKey.currentState.validate()) {
-                                setState(() {
-                                  _isLoading = true;
-                                });
-                                LoginModel loginDetails = LoginModel(
-                                    user_email: _loginidController.text,
-                                    password: _pwdController.text);
-
-                                final result = await performLogin(loginDetails);
-                                print("result: " + result.toString());
-                                if (result) {
-                                  Navigator.pushReplacement(context,
-                                      MaterialPageRoute(builder: (context) {
-                                    _isLoading = false;
-                                    return HomeScreen();
-                                  }));
-                                } else {
-                                  Fluttertoast.showToast(
-                                      msg: "WRONG CREDENTIALS",
-                                      toastLength: Toast.LENGTH_LONG,
-                                      gravity: ToastGravity.CENTER,
-                                      backgroundColor:
-                                          Theme.of(context).primaryColor,
-                                      textColor:
-                                          Theme.of(context).primaryColorLight);
-                                  setState(() {
-                                    _isLoading = false;
-                                  });
-                                }
-                              }
-                            },
-                            child: Container(
-                              width: MediaQuery.of(context).size.width / 3,
-                              height: 50,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(12),
-                                  color: Theme.of(context).primaryColor),
-                              child: Center(
-                                  child: Text(
-                                "LOGIN",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontFamily:
-                                      UtilsImporter().stringUtils.HKGrotesk,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              )),
-                            ),
-                          )
-                        ]),
-                      ),
-                    )
-                  ],
-                ),
+                  )
+                ],
               ),
             ),
             _isLoading

@@ -309,15 +309,18 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
                                       ? Expanded(
                                           flex: 2,
                                           child: Text(
-                                            "ID:" +
+                                            "ID:\t" +
                                                 searchList[index].assignTo +
-                                                "Name:" +
+                                                "\nName:\t" +
                                                 getBoyName(
                                                     searchList[index].assignTo),
                                             style: suffixTextStyle,
                                           ),
                                         )
-                                      : (searchList[index].status != "3")
+                                      : (searchList[index].status !=
+                                                  "3" && // 3:CANCEL
+                                              searchList[index].status !=
+                                                  "4") // 4:DELIVERED
                                           ? RaisedButton(
                                               color: Theme.of(context)
                                                   .primaryColor,
@@ -332,7 +335,9 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
                                                 }));
                                               },
                                             )
-                                          : cancelTag()
+                                          : searchList[index].status == "3"
+                                              ? cancelTag()
+                                              : Text(" ")
                                 ]),
                               ),
                               Divider(

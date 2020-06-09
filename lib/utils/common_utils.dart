@@ -108,7 +108,7 @@ outTag() {
   return Align(
       alignment: Alignment.topRight,
       child: Text(
-        "OUT",
+        "Out For Delivery",
         style: TextStyle(
             color: Colors.yellow, fontWeight: FontWeight.bold, fontSize: 15),
       ));

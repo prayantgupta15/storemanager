@@ -171,7 +171,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             cursorColor: Theme.of(context).primaryColor,
                             controller: _loginidController,
                             textInputAction: TextInputAction.next,
-                            keyboardType: TextInputType.text,
+                            keyboardType: TextInputType.emailAddress,
                             autofocus: false,
                             focusNode: _loginFocus,
                             onFieldSubmitted: (value) {

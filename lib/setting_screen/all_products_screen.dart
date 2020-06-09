@@ -148,354 +148,356 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                     searchList3.length.toString());
               }
 
-              return CustomScrollView(
-                slivers: <Widget>[
-                  SliverAppBar(
-                    backgroundColor: Theme.of(context).primaryColorLight,
-                    leading: IconButton(
-                      icon: Icon(Icons.arrow_back),
-                      color: Theme.of(context).primaryColorDark,
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                    ),
-                    title: Text(
-                      "All Products",
-                      style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                          color: Theme.of(context).primaryColorDark,
-                          fontFamily: UtilsImporter().stringUtils.HKGrotesk),
-                    ),
-                    floating: true,
-                    expandedHeight: 140,
-                    actions: <Widget>[
-                      IconButton(
-                        icon: Icon(Icons.search),
-                        color: Theme.of(context).primaryColor,
+              return Scrollbar(
+                child: CustomScrollView(
+                  slivers: <Widget>[
+                    SliverAppBar(
+                      backgroundColor: Theme.of(context).primaryColorLight,
+                      leading: IconButton(
+                        icon: Icon(Icons.arrow_back),
+                        color: Theme.of(context).primaryColorDark,
                         onPressed: () {
-                          setState(() {
-                            width = MediaQuery.of(context).size.width * 0.7;
-                          });
+                          Navigator.pop(context);
                         },
-                      )
-                    ],
-                    flexibleSpace: FlexibleSpaceBar(
-                      background: Container(
-                        child: Align(
-                          alignment: Alignment.bottomCenter,
-                          child: AnimatedContainer(
-                              padding: EdgeInsets.only(bottom: 10),
-                              duration: Duration(milliseconds: 800),
-                              width: width,
-                              child: TextField(
-                                autofocus: false,
-                                controller: searchController,
-                                cursorColor: Theme.of(context).primaryColor,
-                                style: formTitleTextStyle,
-                                decoration: InputDecoration(
-                                  helperText:
-                                      "Search by Product Name, Category Name",
-                                  helperMaxLines: 2,
-                                  hintText: "Eg. Apple",
-                                  labelText: "Search",
-                                  labelStyle: labelTextStyle,
-                                ),
-                                onChanged: (text) {
-                                  setState(() {
-                                    searchList3 = List<ProductData>();
-                                    print(text);
-                                    text = text.toLowerCase();
-                                    text = text.trim();
-                                    for (int i = 0;
-                                        i < snapshot.data.length;
-                                        i++) {
-                                      print("index" + i.toString());
-                                      print("searching for: " + text);
-                                      if (snapshot.data[i].productName !=
-                                              null &&
-                                          snapshot.data[i].productName
-                                              .toLowerCase()
-                                              .contains(text))
-                                        searchList3.add(snapshot.data[i]);
-                                      else if (snapshot.data[i].title != null &&
-                                          snapshot.data[i].title
-                                              .toLowerCase()
-                                              .contains(text))
-                                        searchList3.add(snapshot.data[i]);
-                                    }
-                                    print(snapshot.data.length.toString());
-                                  });
-                                },
-                              )),
+                      ),
+                      title: Text(
+                        "All Products",
+                        style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: Theme.of(context).primaryColorDark,
+                            fontFamily: UtilsImporter().stringUtils.HKGrotesk),
+                      ),
+                      floating: true,
+                      expandedHeight: 140,
+                      actions: <Widget>[
+                        IconButton(
+                          icon: Icon(Icons.search),
+                          color: Theme.of(context).primaryColor,
+                          onPressed: () {
+                            setState(() {
+                              width = MediaQuery.of(context).size.width * 0.7;
+                            });
+                          },
+                        )
+                      ],
+                      flexibleSpace: FlexibleSpaceBar(
+                        background: Container(
+                          child: Align(
+                            alignment: Alignment.bottomCenter,
+                            child: AnimatedContainer(
+                                padding: EdgeInsets.only(bottom: 10),
+                                duration: Duration(milliseconds: 800),
+                                width: width,
+                                child: TextField(
+                                  autofocus: false,
+                                  controller: searchController,
+                                  cursorColor: Theme.of(context).primaryColor,
+                                  style: formTitleTextStyle,
+                                  decoration: InputDecoration(
+                                    helperText:
+                                        "Search by Product Name, Category Name",
+                                    helperMaxLines: 2,
+                                    hintText: "Eg. Apple",
+                                    labelText: "Search",
+                                    labelStyle: labelTextStyle,
+                                  ),
+                                  onChanged: (text) {
+                                    setState(() {
+                                      searchList3 = List<ProductData>();
+                                      print(text);
+                                      text = text.toLowerCase();
+                                      text = text.trim();
+                                      for (int i = 0;
+                                          i < snapshot.data.length;
+                                          i++) {
+                                        print("index" + i.toString());
+                                        print("searching for: " + text);
+                                        if (snapshot.data[i].productName !=
+                                                null &&
+                                            snapshot.data[i].productName
+                                                .toLowerCase()
+                                                .contains(text))
+                                          searchList3.add(snapshot.data[i]);
+                                        else if (snapshot.data[i].title != null &&
+                                            snapshot.data[i].title
+                                                .toLowerCase()
+                                                .contains(text))
+                                          searchList3.add(snapshot.data[i]);
+                                      }
+                                      print(snapshot.data.length.toString());
+                                    });
+                                  },
+                                )),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  SliverList(
-                    delegate: SliverChildBuilderDelegate((context, index) {
-                      return Container(
-                        margin:
-                            EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-                        width: MediaQuery.of(context).size.width,
-                        padding: EdgeInsets.all(18),
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).primaryColorLight,
-                          border: Border.all(
-                            color: Theme.of(context).primaryColor,
-                            width: 2.0,
+                    SliverList(
+                      delegate: SliverChildBuilderDelegate((context, index) {
+                        return Container(
+                          margin:
+                              EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                          width: MediaQuery.of(context).size.width,
+                          padding: EdgeInsets.all(18),
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).primaryColorLight,
+                            border: Border.all(
+                              color: Theme.of(context).primaryColor,
+                              width: 2.0,
+                            ),
+                            borderRadius: BorderRadius.circular(20),
                           ),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Column(
-                          children: <Widget>[
-                            //STATUS
-                            Container(
+                          child: Column(
+                            children: <Widget>[
+                              //STATUS
+                              Container(
 //                    color: Colors.red,
-                              child: Row(children: <Widget>[
-                                Expanded(
-                                    child: Text("Status: ",
-                                        style: prefixTextStyle)),
-                                Expanded(
-                                  child: searchList3[index].inStock == "1"
-                                      ? inStockTag()
-                                      : outOfStockTag(),
-                                )
-                              ]),
-                            ),
-                            Divider(color: Theme.of(context).primaryColorDark),
+                                child: Row(children: <Widget>[
+                                  Expanded(
+                                      child: Text("Status: ",
+                                          style: prefixTextStyle)),
+                                  Expanded(
+                                    child: searchList3[index].inStock == "1"
+                                        ? inStockTag()
+                                        : outOfStockTag(),
+                                  )
+                                ]),
+                              ),
+                              Divider(color: Theme.of(context).primaryColorDark),
 
-                            //PRODUCT ID
-                            Container(
+                              //PRODUCT ID
+                              Container(
 //                    color: Colors.blue,
-                              child: Row(children: <Widget>[
-                                Expanded(
-                                  flex: 1,
-                                  child: Text(
-                                    "Product ID: ",
-                                    style: prefixTextStyle,
-                                  ),
-                                ),
-                                Expanded(
-                                    flex: 2,
+                                child: Row(children: <Widget>[
+                                  Expanded(
+                                    flex: 1,
                                     child: Text(
-                                      searchList3[index].productId,
-                                      style: suffixTextStyle,
-                                    ))
-                              ]),
-                            ),
-                            Divider(color: Theme.of(context).primaryColorDark),
-
-                            //CATEGORY ID
-                            Container(
-//                    color: Colors.blue,
-                              child: Row(children: <Widget>[
-                                Expanded(
-                                  flex: 1,
-                                  child: Text(
-                                    "Category ID: ",
-                                    style: prefixTextStyle,
+                                      "Product ID: ",
+                                      style: prefixTextStyle,
+                                    ),
                                   ),
-                                ),
-                                Expanded(
-                                    flex: 2,
+                                  Expanded(
+                                      flex: 2,
+                                      child: Text(
+                                        searchList3[index].productId,
+                                        style: suffixTextStyle,
+                                      ))
+                                ]),
+                              ),
+                              Divider(color: Theme.of(context).primaryColorDark),
+
+                              //CATEGORY ID
+                              Container(
+//                    color: Colors.blue,
+                                child: Row(children: <Widget>[
+                                  Expanded(
+                                    flex: 1,
                                     child: Text(
-                                      searchList3[index].categoryId,
-                                      style: suffixTextStyle,
-                                    ))
-                              ]),
-                            ),
-                            Divider(color: Theme.of(context).primaryColorDark),
-
-                            //NAME
-                            Container(
-//                    color: Colors.blue,
-                              child: Row(children: <Widget>[
-                                Expanded(
-                                  flex: 1,
-                                  child: Text(
-                                    "Name: ",
-                                    style: prefixTextStyle,
+                                      "Category ID: ",
+                                      style: prefixTextStyle,
+                                    ),
                                   ),
-                                ),
-                                Expanded(
-                                    flex: 2,
-                                    child: SelectableText(
-                                      searchList3[index].productName,
-                                      style: suffixTextStyle,
-                                    ))
-                              ]),
-                            ),
-                            Divider(color: Theme.of(context).primaryColorDark),
+                                  Expanded(
+                                      flex: 2,
+                                      child: Text(
+                                        searchList3[index].categoryId,
+                                        style: suffixTextStyle,
+                                      ))
+                                ]),
+                              ),
+                              Divider(color: Theme.of(context).primaryColorDark),
 
-                            //TITLE
-                            Container(
+                              //NAME
+                              Container(
 //                    color: Colors.blue,
-                              child: Row(children: <Widget>[
-                                Expanded(
-                                  flex: 1,
-                                  child: Text(
-                                    "Title: ",
-                                    style: prefixTextStyle,
-                                  ),
-                                ),
-                                Expanded(
-                                    flex: 2,
-                                    child: SelectableText(
-                                      searchList3[index].title,
-                                      style: suffixTextStyle,
-                                    ))
-                              ]),
-                            ),
-                            Divider(color: Theme.of(context).primaryColorDark),
-
-                            //PRICE
-                            Container(
-//                    color: Colors.blue,
-                              child: Row(children: <Widget>[
-                                Expanded(
-                                  flex: 1,
-                                  child: Text(
-                                    "Price: ",
-                                    style: prefixTextStyle,
-                                  ),
-                                ),
-                                Expanded(
-                                    flex: 2,
+                                child: Row(children: <Widget>[
+                                  Expanded(
+                                    flex: 1,
                                     child: Text(
-                                      searchList3[index].price,
-                                      style: suffixTextStyle,
-                                    ))
-                              ]),
-                            ),
-                            Divider(color: Theme.of(context).primaryColorDark),
-
-                            //MRP
-                            Container(
-//                    color: Colors.blue,
-                              child: Row(children: <Widget>[
-                                Expanded(
-                                  flex: 1,
-                                  child: Text(
-                                    "MRP: ",
-                                    style: prefixTextStyle,
+                                      "Name: ",
+                                      style: prefixTextStyle,
+                                    ),
                                   ),
-                                ),
-                                Expanded(
-                                    flex: 2,
-                                    child: Text(
-                                      searchList3[index].mrp,
-                                      style: suffixTextStyle,
-                                    ))
-                              ]),
-                            ),
-                            Divider(color: Theme.of(context).primaryColorDark),
+                                  Expanded(
+                                      flex: 2,
+                                      child: SelectableText(
+                                        searchList3[index].productName,
+                                        style: suffixTextStyle,
+                                      ))
+                                ]),
+                              ),
+                              Divider(color: Theme.of(context).primaryColorDark),
 
-                            //Unit Value
-                            Container(
+                              //TITLE
+                              Container(
 //                    color: Colors.blue,
-                              child: Row(children: <Widget>[
-                                Expanded(
-                                  flex: 1,
-                                  child: Text(
-                                    "Unit Value: ",
-                                    style: prefixTextStyle,
-                                  ),
-                                ),
-                                Expanded(
-                                    flex: 2,
+                                child: Row(children: <Widget>[
+                                  Expanded(
+                                    flex: 1,
                                     child: Text(
-                                      searchList3[index].unitValue,
-                                      style: suffixTextStyle,
-                                    ))
-                              ]),
-                            ),
-                            Divider(color: Theme.of(context).primaryColorDark),
+                                      "Title: ",
+                                      style: prefixTextStyle,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      flex: 2,
+                                      child: SelectableText(
+                                        searchList3[index].title,
+                                        style: suffixTextStyle,
+                                      ))
+                                ]),
+                              ),
+                              Divider(color: Theme.of(context).primaryColorDark),
 
-                            //Unit
-                            Container(
+                              //PRICE
+                              Container(
 //                    color: Colors.blue,
-                              child: Row(children: <Widget>[
-                                Expanded(
-                                  flex: 1,
-                                  child: Text(
-                                    "Unit: ",
-                                    style: prefixTextStyle,
-                                  ),
-                                ),
-                                Expanded(
-                                    flex: 2,
+                                child: Row(children: <Widget>[
+                                  Expanded(
+                                    flex: 1,
                                     child: Text(
-                                      searchList3[index].unit,
-                                      style: suffixTextStyle,
-                                    ))
-                              ]),
-                            ),
-                            Divider(color: Theme.of(context).primaryColorDark),
+                                      "Price: ",
+                                      style: prefixTextStyle,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      flex: 2,
+                                      child: Text(
+                                        searchList3[index].price,
+                                        style: suffixTextStyle,
+                                      ))
+                                ]),
+                              ),
+                              Divider(color: Theme.of(context).primaryColorDark),
 
-                            //STOCK VALUE
-                            Container(
+                              //MRP
+                              Container(
+//                    color: Colors.blue,
+                                child: Row(children: <Widget>[
+                                  Expanded(
+                                    flex: 1,
+                                    child: Text(
+                                      "MRP: ",
+                                      style: prefixTextStyle,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      flex: 2,
+                                      child: Text(
+                                        searchList3[index].mrp,
+                                        style: suffixTextStyle,
+                                      ))
+                                ]),
+                              ),
+                              Divider(color: Theme.of(context).primaryColorDark),
+
+                              //Unit Value
+                              Container(
+//                    color: Colors.blue,
+                                child: Row(children: <Widget>[
+                                  Expanded(
+                                    flex: 1,
+                                    child: Text(
+                                      "Unit Value: ",
+                                      style: prefixTextStyle,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      flex: 2,
+                                      child: Text(
+                                        searchList3[index].unitValue,
+                                        style: suffixTextStyle,
+                                      ))
+                                ]),
+                              ),
+                              Divider(color: Theme.of(context).primaryColorDark),
+
+                              //Unit
+                              Container(
+//                    color: Colors.blue,
+                                child: Row(children: <Widget>[
+                                  Expanded(
+                                    flex: 1,
+                                    child: Text(
+                                      "Unit: ",
+                                      style: prefixTextStyle,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      flex: 2,
+                                      child: Text(
+                                        searchList3[index].unit,
+                                        style: suffixTextStyle,
+                                      ))
+                                ]),
+                              ),
+                              Divider(color: Theme.of(context).primaryColorDark),
+
+                              //STOCK VALUE
+                              Container(
 //                    color: Colors.red,
-                              child: Row(children: <Widget>[
-                                Expanded(
-                                    child: Text("Stock: ",
-                                        style: prefixTextStyle)),
-                                Expanded(
-                                  flex: 2,
-                                  child: Text(
-                                    searchList3[index].stock,
-                                    style: suffixTextStyle,
-                                  ),
-                                )
-                              ]),
-                            ),
-                            Divider(color: Theme.of(context).primaryColorDark),
+                                child: Row(children: <Widget>[
+                                  Expanded(
+                                      child: Text("Stock: ",
+                                          style: prefixTextStyle)),
+                                  Expanded(
+                                    flex: 2,
+                                    child: Text(
+                                      searchList3[index].stock,
+                                      style: suffixTextStyle,
+                                    ),
+                                  )
+                                ]),
+                              ),
+                              Divider(color: Theme.of(context).primaryColorDark),
 
-                            //Increments
-                            Container(
+                              //Increments
+                              Container(
 //                    color: Colors.blue,
-                              child: Row(children: <Widget>[
-                                Expanded(
-                                  flex: 1,
-                                  child: Text(
-                                    "Increments: ",
-                                    style: prefixTextStyle,
-                                  ),
-                                ),
-                                Expanded(
-                                    flex: 2,
+                                child: Row(children: <Widget>[
+                                  Expanded(
+                                    flex: 1,
                                     child: Text(
-                                      searchList3[index].increament,
-                                      style: suffixTextStyle,
-                                    ))
-                              ]),
-                            ),
-                            Divider(color: Theme.of(context).primaryColorDark),
+                                      "Increments: ",
+                                      style: prefixTextStyle,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      flex: 2,
+                                      child: Text(
+                                        searchList3[index].increament,
+                                        style: suffixTextStyle,
+                                      ))
+                                ]),
+                              ),
+                              Divider(color: Theme.of(context).primaryColorDark),
 
-                            //Rewards
-                            Container(
-                              child: Row(children: <Widget>[
-                                Expanded(
-                                  flex: 1,
-                                  child: Text(
-                                    "Rewards: ",
-                                    style: prefixTextStyle,
-                                  ),
-                                ),
-                                Expanded(
-                                    flex: 2,
+                              //Rewards
+                              Container(
+                                child: Row(children: <Widget>[
+                                  Expanded(
+                                    flex: 1,
                                     child: Text(
-                                      searchList3[index].rewards,
-                                      style: suffixTextStyle,
-                                    ))
-                              ]),
-                            ),
-                          ],
-                        ),
-                      );
-                    }, childCount: searchList3.length),
-                  ),
-                ],
+                                      "Rewards: ",
+                                      style: prefixTextStyle,
+                                    ),
+                                  ),
+                                  Expanded(
+                                      flex: 2,
+                                      child: Text(
+                                        searchList3[index].rewards,
+                                        style: suffixTextStyle,
+                                      ))
+                                ]),
+                              ),
+                            ],
+                          ),
+                        );
+                      }, childCount: searchList3.length),
+                    ),
+                  ],
+                ),
               );
             } else {
               return Padding(

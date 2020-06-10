@@ -204,7 +204,8 @@ class _HomeorTodaysOrdersScreenState extends State<HomeorTodaysOrdersScreen> {
                                         searchList.add(snapshot.data[i]);
                                       }
                                       //BOY NAME
-                                      else if (snapshot.data[i].assignTo != "0" &&
+                                      else if (snapshot.data[i].assignTo !=
+                                              "0" &&
                                           (getBoyName(snapshot.data[i].assignTo)
                                               .toString()
                                               .toLowerCase()
@@ -256,8 +257,8 @@ class _HomeorTodaysOrdersScreenState extends State<HomeorTodaysOrdersScreen> {
                           }));
                         },
                         child: Container(
-                          margin:
-                              EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                          margin: EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 15),
                           width: MediaQuery.of(context).size.width,
                           padding: EdgeInsets.all(18),
                           decoration: BoxDecoration(
@@ -278,10 +279,12 @@ class _HomeorTodaysOrdersScreenState extends State<HomeorTodaysOrdersScreen> {
                                       child: Text("Status: ",
                                           style: prefixTextStyle)),
                                   Expanded(
-                                      child: trackOrder(searchList[index].status))
+                                      child:
+                                          trackOrder(searchList[index].status))
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
 
 //                            ASSIGN TO
                               searchList[index].status != '3' &&
@@ -299,11 +302,13 @@ class _HomeorTodaysOrdersScreenState extends State<HomeorTodaysOrdersScreen> {
                                                 flex: 2,
                                                 child: Text(
                                                   "ID:\t" +
-                                                      searchList[index].assignTo +
+                                                      searchList[index]
+                                                          .assignTo +
                                                       "\n" +
                                                       "Name:\t" +
-                                                      getBoyName(searchList[index]
-                                                          .assignTo),
+                                                      getBoyName(
+                                                          searchList[index]
+                                                              .assignTo),
                                                   style: suffixTextStyle,
                                                 ),
                                               )
@@ -316,8 +321,9 @@ class _HomeorTodaysOrdersScreenState extends State<HomeorTodaysOrdersScreen> {
                                                       CupertinoPageRoute(
                                                           builder: (context) {
                                                     return AssignOrderScreen(
-                                                        Orderid: searchList[index]
-                                                            .saleId);
+                                                        Orderid:
+                                                            searchList[index]
+                                                                .saleId);
                                                   }));
                                                 },
                                               )
@@ -325,7 +331,8 @@ class _HomeorTodaysOrdersScreenState extends State<HomeorTodaysOrdersScreen> {
                                       ]),
                                     )
                                   : Container(),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
 
                               //ORDER ID
                               Container(
@@ -346,7 +353,8 @@ class _HomeorTodaysOrdersScreenState extends State<HomeorTodaysOrdersScreen> {
                                       ))
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
 
                               //NAME
                               Container(
@@ -362,12 +370,14 @@ class _HomeorTodaysOrdersScreenState extends State<HomeorTodaysOrdersScreen> {
                                   Expanded(
                                       flex: 2,
                                       child: Text(
-                                        showInfo(searchList[index].receiverName),
+                                        showInfo(
+                                            searchList[index].receiverName),
                                         style: suffixTextStyle,
                                       ))
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
 
 //                            CONTACT
                               Container(
@@ -385,8 +395,8 @@ class _HomeorTodaysOrdersScreenState extends State<HomeorTodaysOrdersScreen> {
                                     child: Row(
                                       children: <Widget>[
                                         Text(
-                                            showInfo(
-                                                searchList[index].receiverMobile),
+                                            showInfo(searchList[index]
+                                                .receiverMobile),
                                             style: suffixTextStyle),
                                         IconButton(
                                           icon: Icon(Icons.call),
@@ -405,7 +415,8 @@ class _HomeorTodaysOrdersScreenState extends State<HomeorTodaysOrdersScreen> {
                                   )
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
 
 //                            HOUSENO
                               Container(
@@ -426,7 +437,8 @@ class _HomeorTodaysOrdersScreenState extends State<HomeorTodaysOrdersScreen> {
                                       ))
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
 
 //                            SOCIETY
                               Container(
@@ -447,7 +459,8 @@ class _HomeorTodaysOrdersScreenState extends State<HomeorTodaysOrdersScreen> {
                                       ))
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
 
 //                             DATE
                               Container(
@@ -468,7 +481,8 @@ class _HomeorTodaysOrdersScreenState extends State<HomeorTodaysOrdersScreen> {
                                       ))
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
 
 //                            TIME
                               Container(
@@ -487,13 +501,14 @@ class _HomeorTodaysOrdersScreenState extends State<HomeorTodaysOrdersScreen> {
                                         showInfo(searchList[index]
                                                 .deliveryTimeFrom) +
                                             " to " +
-                                            showInfo(
-                                                searchList[index].deliveryTimeTo),
+                                            showInfo(searchList[index]
+                                                .deliveryTimeTo),
                                         style: suffixTextStyle,
                                       ))
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
 
 //                            ORDER AMOUNT
                               Container(
@@ -513,7 +528,8 @@ class _HomeorTodaysOrdersScreenState extends State<HomeorTodaysOrdersScreen> {
                                       ))
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
 
 //                            PAYMENT MODE
                               Container(
@@ -528,12 +544,14 @@ class _HomeorTodaysOrdersScreenState extends State<HomeorTodaysOrdersScreen> {
                                   Expanded(
                                       flex: 2,
                                       child: Text(
-                                        showInfo(searchList[index].paymentMethod),
+                                        showInfo(
+                                            searchList[index].paymentMethod),
                                         style: suffixTextStyle,
                                       ))
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
                             ],
                           ),
                         ),

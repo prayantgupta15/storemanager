@@ -13,8 +13,8 @@ Future<bool> performLogin(LoginModel loginModel) async {
   if (response.statusCode == 200) {
     print(response.body);
     final data = jsonDecode(response.body);
-    print("data['responce']" + data["responce"].toString());
-    if (data["responce"] == true) {
+    print("data['responce']" + data["response"].toString());
+    if (data["response"] == true) {
       SharedPreferencesUtil.saveIsLogin(true);
       print("SharedPreferencesUtil.getIsLogin().toString()");
       SharedPreferencesUtil.getIsLogin().then((onValue) {

@@ -219,7 +219,8 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                                                 .toLowerCase()
                                                 .contains(text))
                                           searchList3.add(snapshot.data[i]);
-                                        else if (snapshot.data[i].title != null &&
+                                        else if (snapshot.data[i].title !=
+                                                null &&
                                             snapshot.data[i].title
                                                 .toLowerCase()
                                                 .contains(text))
@@ -236,8 +237,8 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                     SliverList(
                       delegate: SliverChildBuilderDelegate((context, index) {
                         return Container(
-                          margin:
-                              EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                          margin: EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 15),
                           width: MediaQuery.of(context).size.width,
                           padding: EdgeInsets.all(18),
                           decoration: BoxDecoration(
@@ -264,7 +265,8 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                                   )
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
 
                               //PRODUCT ID
                               Container(
@@ -285,7 +287,8 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                                       ))
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
 
                               //CATEGORY ID
                               Container(
@@ -306,7 +309,8 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                                       ))
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
 
                               //NAME
                               Container(
@@ -327,7 +331,8 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                                       ))
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
 
                               //TITLE
                               Container(
@@ -348,7 +353,8 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                                       ))
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
 
                               //PRICE
                               Container(
@@ -369,7 +375,8 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                                       ))
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
 
                               //MRP
                               Container(
@@ -390,7 +397,8 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                                       ))
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
 
                               //Unit Value
                               Container(
@@ -411,7 +419,8 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                                       ))
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
 
                               //Unit
                               Container(
@@ -432,7 +441,8 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                                       ))
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
 
                               //STOCK VALUE
                               Container(
@@ -450,7 +460,8 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                                   )
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
 
                               //Increments
                               Container(
@@ -471,7 +482,8 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                                       ))
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
 
                               //Rewards
                               Container(

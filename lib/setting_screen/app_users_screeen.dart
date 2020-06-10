@@ -267,8 +267,8 @@ class _AppUsersScreenState extends State<AppUsersScreen> {
                     SliverList(
                       delegate: SliverChildBuilderDelegate((context, index) {
                         return Container(
-                          margin:
-                              EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                          margin: EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 15),
                           width: MediaQuery.of(context).size.width,
                           padding: EdgeInsets.all(18),
                           decoration: BoxDecoration(
@@ -318,7 +318,8 @@ class _AppUsersScreenState extends State<AppUsersScreen> {
                                       ))
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
 
 //                            NAME
                               Container(
@@ -339,7 +340,8 @@ class _AppUsersScreenState extends State<AppUsersScreen> {
                                       ))
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
 
                               //CONTACT
                               Container(
@@ -380,7 +382,8 @@ class _AppUsersScreenState extends State<AppUsersScreen> {
                                   )
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
 
                               //EMAIL
                               Container(
@@ -407,7 +410,8 @@ class _AppUsersScreenState extends State<AppUsersScreen> {
                                         Expanded(
                                           flex: 1,
                                           child: IconButton(
-                                            icon: Icon(MdiIcons.cardAccountMail),
+                                            icon:
+                                                Icon(MdiIcons.cardAccountMail),
                                             color: Colors.red,
                                             onPressed: () async {
                                               var url =
@@ -424,7 +428,8 @@ class _AppUsersScreenState extends State<AppUsersScreen> {
                                   )
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
 
                               //WALLET
                               Container(
@@ -445,7 +450,8 @@ class _AppUsersScreenState extends State<AppUsersScreen> {
                                       ))
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
 
                               //TOTAL AMOUNT
                               Container(
@@ -466,7 +472,8 @@ class _AppUsersScreenState extends State<AppUsersScreen> {
                                       ))
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
 
                               //total orders
                               Container(
@@ -487,7 +494,8 @@ class _AppUsersScreenState extends State<AppUsersScreen> {
                                       ))
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
 
                               //REWARDS
                               Container(
@@ -503,12 +511,14 @@ class _AppUsersScreenState extends State<AppUsersScreen> {
                                   Expanded(
                                       flex: 2,
                                       child: Text(
-                                        showInfo(searchList[index].totalRewards),
+                                        showInfo(
+                                            searchList[index].totalRewards),
                                         style: suffixTextStyle,
                                       ))
                                 ]),
                               ),
-                              Divider(color: Theme.of(context).primaryColorDark),
+                              Divider(
+                                  color: Theme.of(context).primaryColorDark),
                             ],
                           ),
                         );

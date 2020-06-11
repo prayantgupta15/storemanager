@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:storemanager/utils/common_utils.dart';
 import 'package:storemanager/utils/utils_importer.dart';
 
 class AssignFailureScreen extends StatefulWidget {
@@ -74,7 +75,7 @@ class _AssignFailureScreenState extends State<AssignFailureScreen> {
                 Container(
                     child: Center(
                   child: Text(
-                    "DeliveryBoy Assigned Failed.",
+                    getTranslated(context, 'SELECT_DELIVERY_BOY_FAIL_KEY'),
                     style: suffixTextStyle,
                   ),
                 )),

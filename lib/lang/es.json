@@ -1,0 +1,61 @@
+{
+
+  "TITLE_KEY": "Bienvenida en gerente de tienda",
+  "LOGIN_BUTTON_KEY": "iniciar sesión",
+
+  "TODAY_ORDERS_KEY": "Las ordenes de hoy",
+  "NOTHING_KEY": "Nada que mostrar",
+
+  "MENU_KEY": "menú",
+  "MENU_DES": "Actualice su configuración como Edición de perfil, Actualización de stock, etc.",
+  "EDIT_PROFILE_KEY": "Editar perfil",
+  "EDIT_PROFILE_DES_KEY":"Cambia la información de tu cuenta",
+  "EDIT_PROFILE_SUCCESSFUL_KEY": "Actualización del perfil exitosa",
+  "EDIT_PROFILE_FAIL_KEY": "Error de actualización de perfil",
+  "APP_USERS_KEY": "Usuarios de la aplicación",
+  "APP_USERS_DES_KEY": "Administrar todos los clientes",
+  "PRODUCTS_KEY": "Productos",
+  "PRODUCTS_DES_KEY": "Administra todos los productos",
+
+  "ALL_ORDERS_KEY": "Todas las órdenes",
+  "ALL_ORDERS__DES_KEY": "Gestionar todos los pedidos",
+  "SELECT_DELIVERY_BOY": "Seleccionar repartidor",
+  "SELECT_DELIVERY_BOY_SUCCESSFUL_KEY": "Repartidor asignado con éxito",
+  "SELECT_DELIVERY_BOY_FAIL_KEY": "Error al elegir repartidor",
+  "ORDER_DETAILS_KEY": "Detalles del pedido",
+
+  "UPDATE_STOCK_KEY": "Actualizar stock",
+  "UPDATE_STOCK_DES_KEY": "Gestionar todo el stock",
+  "UPDATE_STOCK_SUCCESSFUL_KEY": "Actualización de existencias exitosa",
+  "UPDATE_STOCK_FAIL_KEY": "Error de actualización de stock",
+
+  "LANGUAGE_KEY": "Idioma",
+  "LANGUAGE_DES_KEY": "Seleccione el idioma",
+
+  "LOGOUT_KEY": "Cerrar sesión",
+  "LOGOUT_DES_KEY": "Salir de la aplicación",
+
+
+  "LOGOUT_CONF_KEY": "¿Estás seguro de que quieres cerrar sesión?",
+  "YES_KEY": "SI",
+  "NO_KEY": "No",
+
+  "ENGLISH_KEY": "Inglés",
+  "ARABIC_KEY": "Arábica",
+  "HINDI_KEY": "Hindi",
+  "FRENCH_KEY": "Francés",
+  "SPANISH_KEY": "Español",
+
+
+  "STATUS_KEY": "",
+  "ASSIGN_KEY": " ",
+  "ORDER_ID_KEY": " ",
+  "NAME_KEY": "",
+  "CONTACT_KEY": "",
+  "HOUSE_NO_KEY": " ",
+  "SOCEITY_KEY": "",
+  "DATE_KEY": "",
+  "TIME_KEY": " ",
+  "AMOUNT_KEY": " ",
+  "PAYMENT_KEY": " "
+}

@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:storemanager/localization/demolocalization.dart';
 import 'package:storemanager/utils/utils_importer.dart';
 
 class CommonUtils {
@@ -141,7 +142,10 @@ trackOrder(String status) {
   if (status == "1") return confirmTag();
   if (status == "2") return outTag();
   if (status == "3") return cancelTag();
-  if (status == "4") return deliveredTag();
+  if (status == "4")
+    return deliveredTag();
+  else
+    return Container();
 }
 
 enum MyThemeKeys { LIGHT, DARK, DARKER }
@@ -253,4 +257,8 @@ class CustomThemeState extends State<CustomTheme> {
       child: widget.child,
     );
   }
+}
+
+String getTranslated(BuildContext context, String key) {
+  return DemoLocalization.of(context).getTranslatedValue(key);
 }

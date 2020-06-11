@@ -98,7 +98,7 @@ class _AssignOrderScreenState extends State<AssignOrderScreen> {
                 },
               ),
               title: Text(
-                "Select Delivery Boy",
+                getTranslated(context, 'SELECT_DELIVERY_BOY'),
                 style: TextStyle(
                     color: Theme.of(context).primaryColorDark,
                     fontSize: 28,

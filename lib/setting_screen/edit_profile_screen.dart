@@ -117,7 +117,7 @@ class _EditProfilescreenState extends State<EditProfilescreen> {
                               ),
                               SizedBox(width: 20),
                               Text(
-                                "Edit Profile",
+                                getTranslated(context, 'EDIT_PROFILE_KEY'),
                                 style: TextStyle(
                                     color: Theme.of(context).primaryColorDark,
                                     fontSize: 30,

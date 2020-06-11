@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:storemanager/utils/common_utils.dart';
 import 'package:storemanager/utils/utils_importer.dart';
 
 class StockUpdateFail extends StatefulWidget {
@@ -73,7 +74,7 @@ class _StockUpdateFailState extends State<StockUpdateFail> {
                 Container(
                     child: Center(
                   child: Text(
-                    "Stock Update Failed.",
+                    getTranslated(context, 'UPDATE_STOCK_FAIL_KEY'),
                     style: suffixTextStyle,
                   ),
                 )),

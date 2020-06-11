@@ -92,6 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     print("building" + obscure.toString());
+
     TextStyle formTitleTextStyle = TextStyle(
         fontFamily: UtilsImporter().stringUtils.HKGrotesk,
         fontWeight: FontWeight.bold,
@@ -113,6 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
       fontWeight: FontWeight.w700,
       fontFamily: UtilsImporter().stringUtils.HKGrotesk,
     );
+
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColorLight,
       body: SafeArea(
@@ -122,12 +124,12 @@ class _LoginScreenState extends State<LoginScreen> {
               onTap: () => FocusScope.of(context).unfocus(),
               child: CustomScrollView(
                 slivers: <Widget>[
-                  SliverAppBar(
-                    backgroundColor: Theme.of(context).primaryColorLight,
-                    title: Text("Sign In", style: formTitleTextStyle),
-                    pinned: true,
-                    elevation: 0,
-                  ),
+//                  SliverAppBar(
+//                    backgroundColor: Theme.of(context).primaryColorLight,
+//                    title: Text("Sign In", style: formTitleTextStyle),
+//                    pinned: true,
+//                    elevation: 0,
+//                  ),
                   SliverList(
                     delegate: SliverChildListDelegate([
                       Padding(
@@ -135,7 +137,11 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text("Welcome", style: headingStyle),
+                            SizedBox(height: 80),
+                            Text(
+                                getTranslated(context, 'TITLE_KEY'),
+//                                "Welcome to Store Manager",
+                                style: formTitleTextStyle),
                             SizedBox(height: 10),
                             Text(
                                 "Enter E-mail address and Password for Sign in",
@@ -150,15 +156,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     key: _formKey,
                     child: SliverList(
                       delegate: SliverChildListDelegate([
-                        CircleAvatar(
-                          backgroundColor: Theme.of(context).primaryColor,
-                          radius: 80,
-                          child: Image(
-                            image: AssetImage(
-                                UtilsImporter().stringUtils.ICON_PATH),
-                            gaplessPlayback: true,
-                          ),
-                        ),
+//                        CircleAvatar(
+//                          backgroundColor: Theme.of(context).primaryColor,
+//                          radius: 80,
+//                          child: Image(
+//                            image: AssetImage(
+//                                UtilsImporter().stringUtils.ICON_PATH),
+//                            gaplessPlayback: true,
+//                          ),
+//                        ),
                         SizedBox(
                             height: MediaQuery.of(context).size.height / 30),
                         Padding(
@@ -182,8 +188,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             decoration: InputDecoration(
                               labelText: "User ID",
                               labelStyle: labelTextStyle,
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20)),
+//                              border: OutlineInputBorder(
+//                                  borderRadius: BorderRadius.circular(20)),
                             ),
                           ),
                         ),
@@ -221,8 +227,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                               labelText: "Password",
                               labelStyle: labelTextStyle,
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(20)),
+//                              border: OutlineInputBorder(
+//                                  borderRadius: BorderRadius.circular(20)),
                             ),
                           ),
                         ),
@@ -273,11 +279,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             width: MediaQuery.of(context).size.width / 3,
                             height: 50,
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12),
+                                borderRadius: BorderRadius.circular(8),
                                 color: Theme.of(context).primaryColor),
                             child: Center(
                                 child: Text(
-                              "LOGIN",
+                                    getTranslated(context, 'LOGIN_BUTTON_KEY'),
                               style: TextStyle(
                                 fontSize: 20,
                                 fontFamily:

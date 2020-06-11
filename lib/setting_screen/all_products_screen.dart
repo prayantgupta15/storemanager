@@ -122,7 +122,7 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                         ),
                         SizedBox(width: 20),
                         Text(
-                          "All Products",
+                          getTranslated(context, 'PRODUCTS_KEY'),
                           style: TextStyle(
                               fontSize: 30,
                               fontWeight: FontWeight.bold,
@@ -161,7 +161,7 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                         },
                       ),
                       title: Text(
-                        "All Products",
+                        getTranslated(context, 'PRODUCTS_KEY'),
                         style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
@@ -532,7 +532,7 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                         ),
                         SizedBox(width: 20),
                         Text(
-                          "All Products",
+                          getTranslated(context, 'PRODUCTS_KEY'),
                           style: TextStyle(
                               fontSize: 30,
                               fontWeight: FontWeight.bold,

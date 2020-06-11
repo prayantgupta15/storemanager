@@ -1,6 +1,5 @@
 import 'package:app_settings/app_settings.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
-import 'package:draggable_scrollbar/draggable_scrollbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -128,7 +127,7 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
                         ),
                         SizedBox(width: 20),
                         Text(
-                          "All Orders",
+                          getTranslated(context, 'ALL_ORDERS_KEY'),
                           style: TextStyle(
                               fontSize: 30,
                               fontWeight: FontWeight.bold,
@@ -166,7 +165,7 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
                         },
                       ),
                       title: Text(
-                        "All Orders",
+                        getTranslated(context, 'ALL_ORDERS_KEY'),
                         style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
@@ -596,7 +595,7 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
                         ),
                         SizedBox(width: 20),
                         Text(
-                          "All Orders",
+                          getTranslated(context, 'ALL_ORDERS_KEY'),
                           style: TextStyle(
                               fontSize: 30,
                               fontWeight: FontWeight.bold,

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ColorUtils {
-  Color primarycolor     = HexColor("f74269");
-  Color greycolor        = HexColor("929794");
-  Color searchgreycolor  = HexColor("e6e6e6");
-  Color darkcolor        = HexColor("3D56F0");
-  Color bluecolor        = HexColor("5468FF");
-  Color violetcolor      = HexColor("5120AE");
+  Color primarycolor = HexColor("c10808");
+  Color greycolor = HexColor("929794");
+  Color searchgreycolor = HexColor("e6e6e6");
+  Color darkcolor = HexColor("3D56F0");
+  Color bluecolor = HexColor("5468FF");
+  Color violetcolor = HexColor("5120AE");
   Color lightVioletColor = HexColor("7085C3");
 }
 

@@ -1,0 +1,64 @@
+{
+
+  "TITLE_KEY": "bienvenue dans le gérant du magasin",
+  "LOGIN_BUTTON_KEY": "s'identifier",
+
+  "TODAY_ORDERS_KEY": "Les commandes d'aujourd'hui",
+  "NOTHING_KEY": "Rien à montrer",
+
+  "MENU_KEY": "menu",
+  "MENU_DES": "Mettez à jour vos paramètres comme Profile Edit, Stock Update etc.",
+
+  "EDIT_PROFILE_KEY": "Editer le profil ",
+  "EDIT_PROFILE_DES_KEY":" Modifier les informations de votre compte",
+  "EDIT_PROFILE_SUCCESSFUL_KEY": "Mise à jour du profil réussie",
+  "EDIT_PROFILE_FAIL_KEY": "Échec de la mise à jour du profil",
+
+  "APP_USERS_KEY": "Utilisateurs d'applications",
+  "APP_USERS_DES_KEY": "Gérer tous les clients",
+
+  "PRODUCTS_KEY": "Des produits",
+  "PRODUCTS_DES_KEY": "Gérer tous les produits",
+
+  "ALL_ORDERS_KEY": "Tous les ordres",
+  "ALL_ORDERS__DES_KEY": "Gérer toutes les commandes",
+  "SELECT_DELIVERY_BOY": "Sélectionnez Livreur",
+  "SELECT_DELIVERY_BOY_SUCCESSFUL_KEY": "Livreur attribué avec succès",
+  "SELECT_DELIVERY_BOY_FAIL_KEY": "Impossible de choisir le livreur",
+  "ORDER_DETAILS_KEY": "détails de la commande",
+
+  "UPDATE_STOCK_KEY": "Mettre à jour le stock",
+  "UPDATE_STOCK_DES_KEY": "Gérer tout le stock",
+  "UPDATE_STOCK_SUCCESSFUL_KEY": "Mise à jour du stock réussie",
+  "UPDATE_STOCK_FAIL_KEY": "Échec de la mise à jour des stocks",
+
+  "LANGUAGE_KEY": "Langue",
+  "LANGUAGE_DES_KEY": "Choisir la langue",
+
+  "LOGOUT_KEY": "Se déconnecter",
+  "LOGOUT_DES_KEY": "Se déconnecter de l'application",
+
+
+  "LOGOUT_CONF_KEY": "Êtes-vous certain de vouloir vous déconnecter?",
+  "YES_KEY": "Oui",
+  "NO_KEY": "Non",
+
+  "ENGLISH_KEY": "Anglais",
+  "ARABIC_KEY": "arabe",
+  "HINDI_KEY": "Hindi",
+  "FRENCH_KEY": "Français",
+  "SPANISH_KEY": "Espagnol",
+
+
+  "STATUS_KEY": "",
+  "ASSIGN_KEY": " ",
+  "ORDER_ID_KEY": " ",
+  "NAME_KEY": "",
+  "CONTACT_KEY": "",
+  "HOUSE_NO_KEY": " ",
+  "SOCEITY_KEY": "",
+  "DATE_KEY": "",
+  "TIME_KEY": " ",
+  "AMOUNT_KEY": " ",
+  "PAYMENT_KEY": " "
+}

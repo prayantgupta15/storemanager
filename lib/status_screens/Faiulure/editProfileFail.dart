@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:storemanager/utils/common_utils.dart';
 import 'package:storemanager/utils/utils_importer.dart';
 
 class EditProfileFail extends StatefulWidget {
@@ -72,7 +73,7 @@ class _EditProfileFailState extends State<EditProfileFail> {
                 Container(
                     child: Center(
                   child: Text(
-                    "Profile Update Failed.",
+                  getTranslated(context, 'EDIT_PROFILE_FAIL_KEY'),
                     style: suffixTextStyle,
                   ),
                 )),

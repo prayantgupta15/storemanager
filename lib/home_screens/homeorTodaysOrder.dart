@@ -124,7 +124,8 @@ class _HomeorTodaysOrdersScreenState extends State<HomeorTodaysOrdersScreen> {
 //                  mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    "Today's Orders",
+                    getTranslated(context, 'TODAY_ORDERS_KEY'),
+//                    "Today's Orders",
                     style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
@@ -330,7 +331,10 @@ class _HomeorTodaysOrdersScreenState extends State<HomeorTodaysOrdersScreen> {
 //                                        : cancelTag()
                                       ]),
                                     )
-                                  : Container(),
+                                  : Container(
+                                      width: 1,
+                                      height: 1,
+                                    ),
                               Divider(
                                   color: Theme.of(context).primaryColorDark),
 
@@ -569,7 +573,7 @@ class _HomeorTodaysOrdersScreenState extends State<HomeorTodaysOrdersScreen> {
 //                  mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    "Today's Orders",
+                    getTranslated(context, 'TODAY_ORDERS_KEY'),
                     style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
@@ -580,7 +584,7 @@ class _HomeorTodaysOrdersScreenState extends State<HomeorTodaysOrdersScreen> {
                   ),
                   Center(
                     child: Text(
-                      "Nothing to Show",
+                      getTranslated(context, 'NOTHING_KEY'),
                       style: suffixTextStyle,
                     ),
                   )

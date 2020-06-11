@@ -1,0 +1,62 @@
+{
+
+  "TITLE_KEY": "स्टोर मैनेजर में आपका स्वागत है",
+
+  "LOGIN_BUTTON_KEY": "लॉग इन करें",
+
+  "TODAY_ORDERS_KEY": "आज के आदेश",
+  "NOTHING_KEY": "दिखाने के लिए कुछ भी नहीं",
+
+  "MENU_KEY": "मेन्यू",
+  "MENU_DES": "अपनी सेटिंग्स को अपडेट करें जैसे कि प्रोफाइल एडिट, स्टॉक अपडेट आदि।",
+  "EDIT_PROFILE_KEY": "प्रोफ़ाइल संपादित करें",
+  "EDIT_PROFILE_DES_KEY":"अपनी खाता जानकारी बदलें",
+  "EDIT_PROFILE_SUCCESSFUL_KEY": "प्रोफ़ाइल अद्यतन सफल",
+  "EDIT_PROFILE_FAIL_KEY": "प्रोफ़ाइल अद्यतन विफल",
+  "APP_USERS_KEY": "ऐप उपयोगकर्ता",
+  "APP_USERS_DES_KEY": "सभी ग्राहक प्रबंधित करें",
+  "PRODUCTS_KEY": "उत्पाद",
+  "PRODUCTS_DES_KEY": "सभी उत्पाद प्रबंधित करें",
+
+  "ALL_ORDERS_KEY": "सभी ऑर्डर",
+  "ALL_ORDERS__DES_KEY": "सभी आदेशों का प्रबंधन करें",
+  "SELECT_DELIVERY_BOY": "डिलीवरी बॉय का चयन करें",
+  "SELECT_DELIVERY_BOY_SUCCESSFUL_KEY": "डडिलीवरी बॉय का चुनाव सफल",
+  "SELECT_DELIVERY_BOY_FAIL_KEY": "डडिलीवरीमैन चुनने में विफल",
+  "ORDER_DETAILS_KEY": "ऑर्डर का विवरण",
+
+  "UPDATE_STOCK_KEY": "अद्यतन स्टॉक",
+  "UPDATE_STOCK_DES_KEY": "सभी स्टॉक प्रबंधित करें",
+  "UPDATE_STOCK_SUCCESSFUL_KEY": "स्टॉक अपडेट सफल",
+  "UPDATE_STOCK_FAIL_KEY": "स्टॉक अपडेट फेल",
+
+  "LANGUAGE_KEY": "भाषा",
+  "LANGUAGE_DES_KEY": "भाषा का चयन करें",
+  "LOGOUT_KEY": "लॉग आउट",
+  "LOGOUT_DES_KEY": "ऐप से साइन आउट करें",
+
+
+  "LOGOUT_CONF_KEY": "क्या आप द्वारा साइन आउट किया जाना सुनिश्चित है?",
+  "YES_KEY": "हाँ",
+  "NO_KEY": "नहीं",
+
+  "ENGLISH_KEY": "अंग्रेज़ी",
+  "ARABIC_KEY": "अरबी",
+  "HINDI_KEY": "हिन्दी",
+  "FRENCH_KEY": "फ्रेंच",
+  "SPANISH_KEY": "स्पेनिश",
+
+
+  "STATUS_KEY": "",
+  "ASSIGN_KEY": " ",
+  "ORDER_ID_KEY": " ",
+  "NAME_KEY": "",
+  "CONTACT_KEY": "",
+  "HOUSE_NO_KEY": " ",
+  "SOCEITY_KEY": "",
+  "DATE_KEY": "",
+  "TIME_KEY": " ",
+  "AMOUNT_KEY": " ",
+  "PAYMENT_KEY": " "
+
+}

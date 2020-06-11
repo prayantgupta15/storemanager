@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:storemanager/utils/common_utils.dart';
 import 'package:storemanager/utils/utils_importer.dart';
 
 class AssignSuccessfullScreen extends StatefulWidget {
@@ -75,7 +76,7 @@ class _AssignSuccessfullScreenState extends State<AssignSuccessfullScreen> {
                 Container(
                     child: Center(
                   child: Text(
-                    "DeliveryBoy Assigned Successfull.",
+                  getTranslated(context, 'SELECT_DELIVERY_BOY_SUCCESSFUL_KEY'),
                     style: suffixTextStyle,
                   ),
                 )),

@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 import 'package:storemanager/models/allOrders.dart';
-import 'package:storemanager/models/todaysOrders.dart';
 import 'package:storemanager/utils/utils_importer.dart';
 
 List<AllOrders> TodaysOrdersList;

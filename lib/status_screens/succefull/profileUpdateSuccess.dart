@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:storemanager/utils/common_utils.dart';
 import 'package:storemanager/utils/utils_importer.dart';
 
 class EditProfilesuccess extends StatefulWidget {
@@ -72,7 +73,7 @@ class _EditProfilesuccessState extends State<EditProfilesuccess> {
                 Container(
                     child: Center(
                   child: Text(
-                    "Profile Updated Successfully.",
+                  getTranslated(context,'EDIT_PROFILE_SUCCESSFUL_KEY' ),
                     style: suffixTextStyle,
                   ),
                 )),

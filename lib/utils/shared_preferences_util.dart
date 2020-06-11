@@ -43,4 +43,17 @@ class SharedPreferencesUtil {
     else
       return "0";
   }
+
+  static void saveLang(String id) async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    await pref.setString('lang', id);
+  }
+
+  static Future<String> getLang() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    if (prefs.getString('lang') != null)
+      return (prefs.getString('lang'));
+    else
+      return "en";
+  }
 }

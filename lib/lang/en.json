@@ -1,0 +1,63 @@
+{
+
+  "TITLE_KEY": "Welcome to Store Manager",
+  "LOGIN_BUTTON_KEY": "Login",
+
+  "TODAY_ORDERS_KEY": "Today's Orders",
+  "NOTHING_KEY": "Nothing To Show",
+
+  "MENU_KEY": "Menu",
+  "MENU_DES": "Update your settings like Profile Edit, Stock Update etc.",
+
+  "EDIT_PROFILE_KEY": "Edit Profile",
+  "EDIT_PROFILE_DES_KEY":"Change your account information",
+  "EDIT_PROFILE_SUCCESSFUL_KEY": "Profile Update Successful",
+  "EDIT_PROFILE_FAIL_KEY": "Profile Update Fail",
+
+  "APP_USERS_KEY": "App Users",
+  "APP_USERS_DES_KEY": "Manage all Customers",
+
+  "PRODUCTS_KEY": "Products",
+  "PRODUCTS_DES_KEY": "Manage all Products",
+
+  "ALL_ORDERS_KEY": "All Orders",
+  "ALL_ORDERS__DES_KEY": "Manage all Orders",
+  "SELECT_DELIVERY_BOY": "Select Delivery Boy",
+  "SELECT_DELIVERY_BOY_SUCCESSFUL_KEY": "DeliveryBoy Assigned Successful",
+  "SELECT_DELIVERY_BOY_FAIL_KEY": "DeliveryBoy Assigned Fail",
+  "ORDER_DETAILS_KEY": "Order Details",
+
+  "UPDATE_STOCK_KEY": "Update Stock",
+  "UPDATE_STOCK_DES_KEY": "Manage all Stock",
+  "UPDATE_STOCK_SUCCESSFUL_KEY": "Stock Update Successful",
+  "UPDATE_STOCK_FAIL_KEY": "Stock Update Fail",
+
+  "LANGUAGE_KEY": "Language",
+  "LANGUAGE_DES_KEY": "Select Language",
+
+  "LOGOUT_KEY": "Logout",
+  "LOGOUT_DES_KEY": "Sign out of the app",
+
+  "LOGOUT_CONF_KEY": "Are you sure you want to SignOut?",
+  "YES_KEY": "Yes",
+  "NO_KEY": "No",
+
+  "ENGLISH_KEY": "English",
+  "ARABIC_KEY": "Arabic",
+  "HINDI_KEY": "Hindi",
+  "FRENCH_KEY": "French",
+  "SPANISH_KEY": "Spanish",
+
+
+  "STATUS_KEY": "Status",
+  "ASSIGN_KEY": "Assign To",
+  "ORDER_ID_KEY": "Order ID",
+  "NAME_KEY": "Name",
+  "CONTACT_KEY": "Contact",
+  "HOUSE_NO_KEY": "House No",
+  "SOCEITY_KEY": "Soceity",
+  "DATE_KEY": "Date",
+  "TIME_KEY": "Delivery Time",
+  "AMOUNT_KEY": "Order Amount",
+  "PAYMENT_KEY": "Payment Mode"
+}

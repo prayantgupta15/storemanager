@@ -148,7 +148,7 @@ class _AppUsersScreenState extends State<AppUsersScreen> {
                         ),
                         SizedBox(width: 20),
                         Text(
-                          "App Users",
+                          getTranslated(context, 'APP_USERS_KEY'),
                           style: TextStyle(
                               fontSize: 30,
                               fontWeight: FontWeight.bold,
@@ -187,7 +187,7 @@ class _AppUsersScreenState extends State<AppUsersScreen> {
                         },
                       ),
                       title: Text(
-                        "App Users",
+                        getTranslated(context, 'APP_USERS_KEY'),
                         style: TextStyle(
                             color: Theme.of(context).primaryColorDark,
                             fontSize: 30,
@@ -548,7 +548,7 @@ class _AppUsersScreenState extends State<AppUsersScreen> {
                         ),
                         SizedBox(width: 20),
                         Text(
-                          "App Users",
+                          getTranslated(context, 'APP_USERS_KEY'),
                           style: TextStyle(
                               fontSize: 30,
                               fontWeight: FontWeight.bold,

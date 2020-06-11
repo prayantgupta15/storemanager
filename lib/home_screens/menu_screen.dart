@@ -84,7 +84,7 @@ class _MenuScreenState extends State<MenuScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(
-                        "Menu",
+                        getTranslated(context, 'MENU_KEY'),
                         style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
@@ -117,7 +117,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 ),
                 SizedBox(height: 10),
                 Text(
-                  UtilsImporter().stringUtils.settings_descrip,
+                  getTranslated(context, 'MENU_DES'),
                   style: TextStyle(
                       color: UtilsImporter().colorUtils.greycolor,
                       fontWeight: FontWeight.w400,
@@ -142,11 +142,11 @@ class _MenuScreenState extends State<MenuScreen> {
                       print("long pressed");
                     },
                     title: Text(
-                      settingsAry[index]['title'],
+                      menuItemTitle(context, index),
                       style: titleTextStyle,
                     ),
                     subtitle: Text(
-                      settingsAry[index]['description'],
+                      menuItemDes(context, index),
                       style: subtitleTextStyle,
                     ),
                     leading: Icon(icon[index],
@@ -159,69 +159,11 @@ class _MenuScreenState extends State<MenuScreen> {
                             .withOpacity(0.4)),
                   );
                 },
-                childCount: settingsAry == null ? 0 : settingsAry.length,
+                childCount: 7,
               ),
             ),
           ],
         ),
-//        child: Column(
-//          children: <Widget>[
-//            //HEADING
-//            Row(
-//              children: <Widget>[
-//                Text(
-//                  "Menu",
-//                  style: TextStyle(
-//                      fontSize: 30,
-//                      fontWeight: FontWeight.bold,
-//                      fontFamily: UtilsImporter().stringUtils.HKGrotesk),
-//                ),
-//              ],
-//            ),
-//            SizedBox(height: 10),
-//            Text(
-//              UtilsImporter().stringUtils.settings_descrip,
-//              style: TextStyle(
-//                  color: UtilsImporter().colorUtils.greycolor,
-//                  fontWeight: FontWeight.w400,
-//                  fontFamily: UtilsImporter().stringUtils.HKGrotesk,
-//                  fontSize: 17),
-//            ),
-//            SizedBox(height: 10),
-//            Expanded(
-//              child: ListView.builder(
-//                primary: false,
-//                scrollDirection: Axis.vertical,
-//                shrinkWrap: true,
-//                itemCount: settingsAry == null ? 0 : settingsAry.length,
-//                itemBuilder: (BuildContext context, int index) {
-//                  return new GestureDetector(
-//                    behavior: HitTestBehavior.translucent,
-//                    onTap: () => print(index),
-//                    child: ListTile(
-//                      title: Text(
-//                        settingsAry[index]['title'],
-//                        style: titleTextStyle,
-//                      ),
-//                      subtitle: Text(
-//                        settingsAry[index]['description'],
-//                        style: subtitleTextStyle,
-//                      ),
-//                      leading: Icon(icon[index],
-//                          color: Theme.of(context)
-//                              .primaryColorDark
-//                              .withOpacity(0.4)),
-//                      trailing: Icon(Icons.chevron_right,
-//                          color: Theme.of(context)
-//                              .primaryColorDark
-//                              .withOpacity(0.4)),
-//                    ),
-//                  );
-//                },
-//              ),
-//            ),
-//          ],
-//        ),
       ),
     );
   }

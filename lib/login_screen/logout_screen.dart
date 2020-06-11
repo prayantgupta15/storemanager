@@ -127,15 +127,15 @@ class _LogOutScreenState extends State<LogOutScreen> {
                       backgroundColor: Theme.of(context).primaryColorDark,
                       radius: 80,
                       child: Image(
-                        image: AssetImage(
-                            UtilsImporter().stringUtils.ICON_PATH),
+                        image:
+                            AssetImage(UtilsImporter().stringUtils.ICON_PATH),
                         gaplessPlayback: true,
                       ),
                     ),
                     SizedBox(height: 10),
                     Center(
                       child: Text(
-                        "Sign Out",
+                        getTranslated(context, 'LOGOUT_KEY'),
                         style: TextStyle(
                             color: Theme.of(context).primaryColorDark,
                             fontSize: 30,
@@ -148,7 +148,7 @@ class _LogOutScreenState extends State<LogOutScreen> {
                     ),
                     Center(
                         child: Text(
-                      "Are you sure you want to SignOut?",
+                      getTranslated(context, 'LOGOUT_CONF_KEY'),
                       style: labelTextStyle,
                     )),
                     SizedBox(
@@ -182,7 +182,7 @@ class _LogOutScreenState extends State<LogOutScreen> {
                               },
                             ),
                             Text(
-                              "Yes",
+                              getTranslated(context, 'YES_KEY'),
                               style: formTitleTextStyle,
                             )
                           ],
@@ -200,7 +200,7 @@ class _LogOutScreenState extends State<LogOutScreen> {
                                   Navigator.pop(context);
                                 }),
                             Text(
-                              "No",
+                              getTranslated(context, 'NO_KEY'),
                               style: formTitleTextStyle,
                             )
                           ],

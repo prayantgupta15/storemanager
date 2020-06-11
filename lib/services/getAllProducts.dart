@@ -6,7 +6,7 @@ import 'package:storemanager/utils/utils_importer.dart';
 List<ProductData> productList = List<ProductData>();
 Future<List<ProductData>> getStoreDataProducts() async {
   final response =
-      await http.get(UtilsImporter().stringUtils.GET_PRODUCTS_URL);
+      await http.post(UtilsImporter().stringUtils.GET_PRODUCTS_URL);
 
   var jsondata = jsonDecode(response.body)["data"];
   print(jsondata.toString());

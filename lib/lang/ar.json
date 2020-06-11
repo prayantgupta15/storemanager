@@ -1,0 +1,61 @@
+{
+
+  "TITLE_KEY": "مرحبًا بك في Store Manager",
+  "LOGIN_BUTTON_KEY": "تسجيل الدخول",
+
+  "TODAY_ORDERS_KEY": "أوامر اليوم",
+  "NOTHING_KEY": "لا شيء لإظهاره",
+
+  "MENU_KEY": "قائمة طعام",
+  "MENU_DES": "قم بتحديث إعداداتك مثل تعديل الملف الشخصي وتحديث المخزون وما إلى ذلك.",
+  "EDIT_PROFILE_KEY": "تعديل الملف الشخصي",
+  "EDIT_PROFILE_DES_KEY":"قم بتغيير معلومات حسابك",
+  "EDIT_PROFILE_SUCCESSFUL_KEY": "تم تحديث الملف الشخصي بنجاح",
+  "EDIT_PROFILE_FAIL_KEY": "فشل تحديث ملف التعريف",
+  "APP_USERS_KEY": "مستخدمو التطبيق",
+  "APP_USERS_DES_KEY": "إدارة جميع العملاء",
+  "PRODUCTS_KEY": "منتجات",
+  "PRODUCTS_DES_KEY": "إدارة جميع المنتجات",
+
+  "ALL_ORDERS_KEY": "جميع الطلبات",
+  "ALL_ORDERS__DES_KEY": "إدارة جميع الطلبات",
+  "SELECT_DELIVERY_BOY": "حدد توصيل الصبي",
+  "SELECT_DELIVERY_BOY_SUCCESSFUL_KEY": "تم تعيين عامل التوصيل بنجاح",
+  "SELECT_DELIVERY_BOY_FAIL_KEY": "فشل في اختيار عامل التوصيل",
+  "ORDER_DETAILS_KEY": "تفاصيل الطلب",
+
+  "UPDATE_STOCK_KEY": "تحديث المخزون",
+  "UPDATE_STOCK_DES_KEY": "إدارة جميع الأسهم",
+  "UPDATE_STOCK_SUCCESSFUL_KEY": "تم تحديث المخزون بنجاح",
+  "UPDATE_STOCK_FAIL_KEY": "فشل تحديث المخزون",
+
+  "LANGUAGE_KEY": "لغة",
+  "LANGUAGE_DES_KEY": "اختار اللغة",
+
+  "LOGOUT_KEY": "تسجيل خروج",
+  "LOGOUT_DES_KEY": "تسجيل الخروج من التطبيق",
+
+
+  "LOGOUT_CONF_KEY": "هل أنت متأكد أنك تريد الخروج؟",
+  "YES_KEY": "نعم",
+  "NO_KEY": "لا",
+
+  "ENGLISH_KEY": "الإنجليزية",
+  "ARABIC_KEY": "عربى",
+  "HINDI_KEY": "هندي",
+  "FRENCH_KEY": "فرنسي",
+  "SPANISH_KEY": "الأسبانية",
+
+
+  "STATUS_KEY": "",
+  "ASSIGN_KEY": " ",
+  "ORDER_ID_KEY": " ",
+  "NAME_KEY": "",
+  "CONTACT_KEY": "",
+  "HOUSE_NO_KEY": " ",
+  "SOCEITY_KEY": "",
+  "DATE_KEY": "",
+  "TIME_KEY": " ",
+  "AMOUNT_KEY": " ",
+  "PAYMENT_KEY": " "
+}

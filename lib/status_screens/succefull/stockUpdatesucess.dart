@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:storemanager/utils/common_utils.dart';
 import 'package:storemanager/utils/utils_importer.dart';
 
 class StockUpdateSuccess extends StatefulWidget {
@@ -74,7 +75,7 @@ class _StockUpdateSuccessState extends State<StockUpdateSuccess> {
                 Container(
                     child: Center(
                   child: Text(
-                    "Stock Update Successfull.",
+                    getTranslated(context, 'UPDATE_STOCK_SUCCESSFUL_KEY'),
                     style: suffixTextStyle,
                   ),
                 )),

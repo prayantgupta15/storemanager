@@ -106,7 +106,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                         ),
                         SizedBox(width: 20),
                         Text(
-                          "Order Details",
+                          getTranslated(context, 'ORDER_DETAILS_KEY'),
                           style: TextStyle(
                               fontSize: 30,
                               fontWeight: FontWeight.bold,
@@ -138,7 +138,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                       },
                     ),
                     title: Text(
-                      "Order Details",
+                      getTranslated(context, 'ORDER_DETAILS_KEY'),
                       style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,
@@ -327,7 +327,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                         ),
                         SizedBox(width: 20),
                         Text(
-                          "Order Details",
+                          getTranslated(context, 'ORDER_DETAILS_KEY'),
                           style: TextStyle(
                               fontSize: 30,
                               fontWeight: FontWeight.bold,

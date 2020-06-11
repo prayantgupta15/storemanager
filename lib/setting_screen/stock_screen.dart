@@ -98,7 +98,7 @@ class _StockScreenState extends State<StockScreen> {
   @override
   Widget build(BuildContext context) {
     Text heading = Text(
-      "Stock Update",
+      getTranslated(context, 'UPDATE_STOCK_KEY'),
       style: TextStyle(
           color: Theme.of(context).primaryColorDark,
           fontSize: 30,
@@ -378,7 +378,7 @@ class _StockScreenState extends State<StockScreen> {
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 30, vertical: 8),
                                   child: Text(
-                                    "Update Stock",
+                                getTranslated(context, 'UPDATE_STOCK_KEY'),
                                     style: TextStyle(
                                       color: Theme.of(context).primaryColorDark,
                                       fontSize: 20,
@@ -476,15 +476,7 @@ class _StockScreenState extends State<StockScreen> {
                             },
                           ),
                           SizedBox(width: 20),
-                          Text(
-                            "Order Details",
-                            style: TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
-                                fontFamily:
-                                    UtilsImporter().stringUtils.HKGrotesk),
-                          ),
-                        ],
+heading,                        ],
                       ),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.2,

@@ -5,7 +5,7 @@
 ///
 
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:storemanager/main.dart';
+import 'package:bazarmanager/main.dart';
 
 class SharedPreferencesUtil {
   static void saveIsDarkThemeMode(bool mode) async {

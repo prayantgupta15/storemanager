@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
-import 'package:storemanager/utils/shared_preferences_util.dart';
+import 'package:bazarmanager/utils/shared_preferences_util.dart';
 
 class Profile {
   String store_name;

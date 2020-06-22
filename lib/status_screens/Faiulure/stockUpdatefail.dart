@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:storemanager/utils/common_utils.dart';
-import 'package:storemanager/utils/utils_importer.dart';
+import 'package:bazarmanager/utils/common_utils.dart';
+import 'package:bazarmanager/utils/utils_importer.dart';
 
 class StockUpdateFail extends StatefulWidget {
   @override
@@ -38,7 +38,7 @@ class _StockUpdateFailState extends State<StockUpdateFail> {
                       ),
                       SizedBox(width: 20),
                       Text(
-                        "Stock Update",
+                        getTranslated(context, 'UPDATE_STOCK_KEY'),
                         style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,

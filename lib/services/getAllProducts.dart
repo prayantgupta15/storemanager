@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:storemanager/models/allProducts.dart';
-import 'package:storemanager/utils/utils_importer.dart';
+import 'package:bazarmanager/models/allProducts.dart';
+import 'package:bazarmanager/utils/utils_importer.dart';
 
 List<ProductData> productList = List<ProductData>();
 Future<List<ProductData>> getStoreDataProducts() async {

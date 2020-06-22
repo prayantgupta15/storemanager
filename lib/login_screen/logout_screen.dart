@@ -6,13 +6,13 @@ import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:storemanager/home_screens/home_screen.dart';
-import 'package:storemanager/login_screen/login_screen.dart';
-import 'package:storemanager/models/loginModel.dart';
-import 'package:storemanager/services/performLogin.dart';
-import 'package:storemanager/utils/common_utils.dart';
-import 'package:storemanager/utils/shared_preferences_util.dart';
-import 'package:storemanager/utils/utils_importer.dart';
+import 'package:bazarmanager/home_screens/home_screen.dart';
+import 'package:bazarmanager/login_screen/login_screen.dart';
+import 'package:bazarmanager/models/loginModel.dart';
+import 'package:bazarmanager/services/performLogin.dart';
+import 'package:bazarmanager/utils/common_utils.dart';
+import 'package:bazarmanager/utils/shared_preferences_util.dart';
+import 'package:bazarmanager/utils/utils_importer.dart';
 
 class LogOutScreen extends StatefulWidget {
   @override
@@ -105,34 +105,24 @@ class _LogOutScreenState extends State<LogOutScreen> {
             padding: const EdgeInsets.fromLTRB(20, 40, 20, 10),
             child: CustomScrollView(
               slivers: <Widget>[
-                SliverList(
-                  delegate: SliverChildListDelegate([
-                    Center(
-                      child: Text(
-                        "StoreManager",
-                        style: TextStyle(
-                            fontSize: 40,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: UtilsImporter().stringUtils.HKGrotesk),
-                      ),
-                    ),
-                  ]),
-                ),
+//                SliverList(
+//                  delegate: SliverChildListDelegate([
+//                    Center(
+//                      child: Text(
+//                        "bazarmanager",
+//                        style: TextStyle(
+//                            fontSize: 40,
+//                            fontWeight: FontWeight.bold,
+//                            fontFamily: UtilsImporter().stringUtils.HKGrotesk),
+//                      ),
+//                    ),
+//                  ]),
+//                ),
                 SliverList(
                   delegate: SliverChildListDelegate([
                     SizedBox(
                       height: 30,
                     ),
-                    CircleAvatar(
-                      backgroundColor: Theme.of(context).primaryColorDark,
-                      radius: 80,
-                      child: Image(
-                        image:
-                            AssetImage(UtilsImporter().stringUtils.ICON_PATH),
-                        gaplessPlayback: true,
-                      ),
-                    ),
-                    SizedBox(height: 10),
                     Center(
                       child: Text(
                         getTranslated(context, 'LOGOUT_KEY'),

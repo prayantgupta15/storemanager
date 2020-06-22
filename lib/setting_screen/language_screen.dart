@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:storemanager/main.dart';
-import 'package:storemanager/utils/common_utils.dart';
-import 'package:storemanager/utils/shared_preferences_util.dart';
-import 'package:storemanager/utils/utils_importer.dart';
+import 'package:bazarmanager/main.dart';
+import 'package:bazarmanager/utils/common_utils.dart';
+import 'package:bazarmanager/utils/shared_preferences_util.dart';
+import 'package:bazarmanager/utils/utils_importer.dart';
 
 class LanguageScreen extends StatefulWidget {
   @override

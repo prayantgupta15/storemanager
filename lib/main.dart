@@ -1,9 +1,8 @@
+import 'package:bazarmanager/utils/common_utils.dart';
+import 'package:bazarmanager/utils/shared_preferences_util.dart';
 import 'package:flutter/material.dart';
-import 'package:storemanager/home_screens/home_screen.dart';
-import 'package:storemanager/loading_screen.dart';
-import 'package:storemanager/localization/demolocalization.dart';
-import 'package:storemanager/utils/common_utils.dart';
-import 'package:storemanager/utils/shared_preferences_util.dart';
+import 'package:bazarmanager/loading_screen.dart';
+import 'package:bazarmanager/localization/demolocalization.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() => runApp(
@@ -56,7 +55,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Store Manager',
+      title: 'Bazar Manager',
       theme: CustomTheme.of(context),
       home: LoadingScreen(),
       debugShowCheckedModeBanner: true,

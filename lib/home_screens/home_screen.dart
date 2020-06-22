@@ -4,12 +4,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:storemanager/home_screens/homeorTodaysOrder.dart';
-import 'package:storemanager/setting_screen/edit_profile_screen.dart';
-import 'package:storemanager/home_screens/menu_screen.dart';
-import 'package:storemanager/utils/common_utils.dart';
-import 'package:storemanager/utils/shared_preferences_util.dart';
-import 'package:storemanager/utils/utils_importer.dart';
+import 'package:bazarmanager/home_screens/homeorTodaysOrder.dart';
+import 'package:bazarmanager/setting_screen/edit_profile_screen.dart';
+import 'package:bazarmanager/home_screens/menu_screen.dart';
+import 'package:bazarmanager/utils/common_utils.dart';
+import 'package:bazarmanager/utils/shared_preferences_util.dart';
+import 'package:bazarmanager/utils/utils_importer.dart';
 
 class HomeScreen extends StatefulWidget {
   @override

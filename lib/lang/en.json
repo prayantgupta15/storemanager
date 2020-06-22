@@ -1,7 +1,8 @@
 {
 
-  "TITLE_KEY": "Welcome to Store Manager",
-  "LOGIN_BUTTON_KEY": "Login",
+  "TITLE_KEY": "Welcome to BazarManager",
+
+  "LOGIN_BUTTON_KEY": "LOGIN",
 
   "TODAY_ORDERS_KEY": "Today's Orders",
   "NOTHING_KEY": "Nothing To Show",
@@ -10,6 +11,7 @@
   "MENU_DES": "Update your settings like Profile Edit, Stock Update etc.",
 
   "EDIT_PROFILE_KEY": "Edit Profile",
+  "UPDATE_PROFILE_BUTTON_KEY": "UPDATE PROFILE",
   "EDIT_PROFILE_DES_KEY":"Change your account information",
   "EDIT_PROFILE_SUCCESSFUL_KEY": "Profile Update Successful",
   "EDIT_PROFILE_FAIL_KEY": "Profile Update Fail",
@@ -21,13 +23,16 @@
   "PRODUCTS_DES_KEY": "Manage all Products",
 
   "ALL_ORDERS_KEY": "All Orders",
-  "ALL_ORDERS__DES_KEY": "Manage all Orders",
+  "ALL_ORDERS_DES_KEY": "Manage all Orders",
   "SELECT_DELIVERY_BOY": "Select Delivery Boy",
   "SELECT_DELIVERY_BOY_SUCCESSFUL_KEY": "DeliveryBoy Assigned Successful",
   "SELECT_DELIVERY_BOY_FAIL_KEY": "DeliveryBoy Assigned Fail",
   "ORDER_DETAILS_KEY": "Order Details",
+  "ORDER_CANCELLED_KEY": "Order has been Cancelled",
 
   "UPDATE_STOCK_KEY": "Update Stock",
+  "UPDATE_STOCK_BUTTON_KEY": "UPDATE STOCK",
+
   "UPDATE_STOCK_DES_KEY": "Manage all Stock",
   "UPDATE_STOCK_SUCCESSFUL_KEY": "Stock Update Successful",
   "UPDATE_STOCK_FAIL_KEY": "Stock Update Fail",

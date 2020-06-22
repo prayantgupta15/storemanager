@@ -1,4 +1,4 @@
-import 'package:storemanager/utils/common_utils.dart';
+import 'package:bazarmanager/utils/common_utils.dart';
 
 String menuItemTitle(context, index) {
   List<String> menuItem = [
@@ -19,7 +19,7 @@ String menuItemDes(context, index) {
     getTranslated(context, 'EDIT_PROFILE_DES_KEY'),
     getTranslated(context, 'APP_USERS_DES_KEY'),
     getTranslated(context, 'PRODUCTS_DES_KEY'),
-    getTranslated(context, 'ALL_ORDERS__DES_KEY'),
+    getTranslated(context, 'ALL_ORDERS_DES_KEY'),
     getTranslated(context, 'UPDATE_STOCK_DES_KEY'),
     getTranslated(context, 'LANGUAGE_DES_KEY'),
     getTranslated(context, 'LOGOUT_DES_KEY'),

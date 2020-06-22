@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:storemanager/models/allAppUsers.dart';
-import 'package:storemanager/services/getAllAppUsers.dart';
-import 'package:storemanager/utils/common_utils.dart';
-import 'package:storemanager/utils/utils_importer.dart';
+import 'package:bazarmanager/models/allAppUsers.dart';
+import 'package:bazarmanager/services/getAllAppUsers.dart';
+import 'package:bazarmanager/utils/common_utils.dart';
+import 'package:bazarmanager/utils/utils_importer.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AppUsersScreen extends StatefulWidget {
@@ -79,25 +79,21 @@ class _AppUsersScreenState extends State<AppUsersScreen> {
 
   //TAGS
   activeTag() {
-    return Align(
-        alignment: Alignment.topRight,
-        child: Text(
-          "ACTIVE",
-          style: TextStyle(
-              color: Colors.green, fontWeight: FontWeight.bold, fontSize: 15),
-        ));
+    return Text(
+      "ACTIVE",
+      style: TextStyle(
+          color: Colors.green, fontWeight: FontWeight.bold, fontSize: 15),
+    );
   }
 
   inactiveTag() {
-    return Align(
-        alignment: Alignment.topRight,
-        child: Text(
-          "INACTIVE",
-          style: TextStyle(
-              color: Theme.of(context).primaryColor,
-              fontWeight: FontWeight.bold,
-              fontSize: 15),
-        ));
+    return Text(
+      "INACTIVE",
+      style: TextStyle(
+          color: Theme.of(context).primaryColor,
+          fontWeight: FontWeight.bold,
+          fontSize: 15),
+    );
   }
 
   @override
@@ -178,7 +174,7 @@ class _AppUsersScreenState extends State<AppUsersScreen> {
                   slivers: <Widget>[
                     SliverAppBar(
                       backgroundColor: Theme.of(context).primaryColorLight,
-                      floating: true,
+                      floating: false,
                       leading: IconButton(
                         icon: Icon(Icons.arrow_back),
                         color: Theme.of(context).primaryColorDark,
@@ -194,39 +190,50 @@ class _AppUsersScreenState extends State<AppUsersScreen> {
                             fontWeight: FontWeight.bold,
                             fontFamily: UtilsImporter().stringUtils.HKGrotesk),
                       ),
-                      expandedHeight: 140,
-                      actions: <Widget>[
-                        IconButton(
-                          icon: Icon(Icons.search),
-                          color: Theme.of(context).primaryColor,
-                          onPressed: () {
-                            setState(() {
-                              width = MediaQuery.of(context).size.width * 0.7;
-                            });
-                          },
-                        )
-                      ],
+                      expandedHeight: 120,
                       flexibleSpace: FlexibleSpaceBar(
                         background: Container(
-                          child: Align(
-                            alignment: Alignment.bottomCenter,
-                            child: AnimatedContainer(
-                                padding: EdgeInsets.only(bottom: 10),
-                                duration: Duration(milliseconds: 800),
-                                width: width,
+                          alignment: Alignment.bottomCenter,
+                          padding: EdgeInsets.symmetric(horizontal: 35),
+                          child: Row(
+                            children: <Widget>[
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(10),
+                                    bottomLeft: Radius.circular(10),
+                                  ),
+                                  color: Theme.of(context).primaryColor,
+                                ),
+                                height: 50,
+                                padding: EdgeInsets.all(10),
+                                child: Icon(
+                                  Icons.search,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(10),
+                                    bottomRight: Radius.circular(10),
+                                  ),
+                                ),
+                                constraints: BoxConstraints(maxHeight: 50),
+                                width: MediaQuery.of(context).size.width * 0.68,
                                 child: TextField(
                                   autofocus: false,
                                   controller: searchController,
                                   cursorColor: Theme.of(context).primaryColor,
                                   style: formTitleTextStyle,
                                   decoration: InputDecoration(
-                                    helperText:
-                                        "Search by User Name, Contact no., E-mail",
-                                    helperMaxLines: 2,
-                                    hintText: "Eg. 9978xxx",
-                                    labelText: "Search",
-                                    labelStyle: labelTextStyle,
-                                  ),
+                                      fillColor: Colors.grey.withOpacity(0.2),
+                                      filled: true,
+                                      border: InputBorder.none,
+                                      hintText:
+                                          "Search by User Name, Contact no., E-mail",
+                                      hintMaxLines: 2,
+                                      hintStyle: TextStyle(fontSize: 12)),
                                   onChanged: (text) {
                                     setState(() {
                                       searchList = List<AllAppUsers>();
@@ -259,7 +266,9 @@ class _AppUsersScreenState extends State<AppUsersScreen> {
                                       print(searchList.length.toString());
                                     });
                                   },
-                                )),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -268,257 +277,223 @@ class _AppUsersScreenState extends State<AppUsersScreen> {
                       delegate: SliverChildBuilderDelegate((context, index) {
                         return Container(
                           margin: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 15),
+                              vertical: 10, horizontal: 35),
                           width: MediaQuery.of(context).size.width,
-                          padding: EdgeInsets.all(18),
                           decoration: BoxDecoration(
-                            color: Theme.of(context).primaryColorLight,
-                            border: Border.all(
-                              color: Theme.of(context).primaryColor,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.grey.withOpacity(0.2),
                           ),
                           child: Column(
                             children: <Widget>[
-                              //STATUS
-                              Container(
+                              Padding(
+                                padding: const EdgeInsets.all(20),
+                                child: Column(
+                                  children: <Widget>[
+                                    //STATUS
+                                    Container(
 //                    color: Colors.red,
-                                child: Row(children: <Widget>[
-                                  Expanded(
-                                      child: Text("Status: ",
-                                          style: prefixTextStyle)),
-                                  Expanded(
-                                    child: searchList[index].status == "0"
-                                        ? inactiveTag()
-                                        : activeTag(),
-                                  )
-                                ]),
-                              ),
-                              Divider(
-                                color: Theme.of(context).primaryColorDark,
-                              ),
-
-                              //USER ID
-                              Container(
-//                    color: Colors.blue,
-                                child: Row(children: <Widget>[
-                                  Expanded(
-                                    flex: 1,
-                                    child: Text(
-                                      "User ID: ",
-                                      style: prefixTextStyle,
-                                    ),
-                                  ),
-                                  Expanded(
-                                      flex: 2,
-                                      child: Text(
-                                        searchList[index].userId,
-                                        style: suffixTextStyle,
-                                      ))
-                                ]),
-                              ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
-
-//                            NAME
-                              Container(
-//                    color: Colors.blue,
-                                child: Row(children: <Widget>[
-                                  Expanded(
-                                    flex: 1,
-                                    child: Text(
-                                      "Name: ",
-                                      style: prefixTextStyle,
-                                    ),
-                                  ),
-                                  Expanded(
-                                      flex: 2,
-                                      child: Text(
-                                        searchList[index].userFullname,
-                                        style: suffixTextStyle,
-                                      ))
-                                ]),
-                              ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
-
-                              //CONTACT
-                              Container(
-//                    color: Colors.blue,
-                                child: Row(children: <Widget>[
-                                  Expanded(
-                                    flex: 1,
-                                    child: Text(
-                                      "Contact: ",
-                                      style: prefixTextStyle,
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 2,
-                                    child: Row(
-                                      children: <Widget>[
+                                      child: Row(children: <Widget>[
                                         Expanded(
-                                          flex: 3,
-                                          child: Text(
-                                              showInfo(
-                                                  searchList[index].userPhone),
-                                              style: suffixTextStyle),
-                                        ),
-                                        IconButton(
-                                          icon: Icon(Icons.call),
-                                          color: Colors.green,
-                                          onPressed: () async {
-                                            var url =
-                                                'tel:${searchList[index].userPhone}';
-                                            if (await canLaunch(url))
-                                              await launch(url);
-                                            else
-                                              throw 'cant';
-                                          },
+                                            child: Text("Status: ",
+                                                style: prefixTextStyle)),
+                                        Expanded(
+                                          child: searchList[index].status == "0"
+                                              ? inactiveTag()
+                                              : activeTag(),
                                         )
-                                      ],
+                                      ]),
                                     ),
-                                  )
-                                ]),
-                              ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
+                                    SizedBox(height: 15),
 
-                              //EMAIL
-                              Container(
+                                    //USER ID
+                                    Container(
 //                    color: Colors.blue,
-                                child: Row(children: <Widget>[
-                                  Expanded(
-                                    flex: 1,
-                                    child: Text(
-                                      "EMAIL: ",
-                                      style: prefixTextStyle,
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 2,
-                                    child: Row(
-                                      children: <Widget>[
-                                        Expanded(
-                                          flex: 3,
-                                          child: Text(
-                                              showInfo(
-                                                  searchList[index].userEmail),
-                                              style: suffixTextStyle),
-                                        ),
+                                      child: Row(children: <Widget>[
                                         Expanded(
                                           flex: 1,
-                                          child: IconButton(
-                                            icon:
-                                                Icon(MdiIcons.cardAccountMail),
-                                            color: Colors.red,
-                                            onPressed: () async {
-                                              var url =
-                                                  'mailto:${searchList[index].userEmail}';
-                                              if (await canLaunch(url))
-                                                await launch(url);
-                                              else
-                                                throw 'cant';
-                                            },
+                                          child: Text(
+                                            "User ID: ",
+                                            style: prefixTextStyle,
                                           ),
-                                        )
-                                      ],
+                                        ),
+                                        Expanded(
+                                            child: Text(
+                                          searchList[index].userId,
+                                          style: suffixTextStyle,
+                                        ))
+                                      ]),
                                     ),
-                                  )
-                                ]),
-                              ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
+                                    SizedBox(height: 5),
 
-                              //WALLET
-                              Container(
+//                            NAME
+                                    Container(
 //                    color: Colors.blue,
-                                child: Row(children: <Widget>[
+                                      child: Row(children: <Widget>[
+                                        Expanded(
+                                          flex: 1,
+                                          child: Text(
+                                            "Name: ",
+                                            style: prefixTextStyle,
+                                          ),
+                                        ),
+                                        Expanded(
+                                            child: Text(
+                                          searchList[index].userFullname,
+                                          style: suffixTextStyle,
+                                        ))
+                                      ]),
+                                    ),
+                                    SizedBox(height: 5),
+
+//                                WALLT
+                                    Container(
+//                    color: Colors.blue,
+                                      child: Row(children: <Widget>[
+                                        Expanded(
+                                          flex: 1,
+                                          child: Text(
+                                            "Wallet: ",
+                                            style: prefixTextStyle,
+                                          ),
+                                        ),
+                                        Expanded(
+                                            child: Text(
+                                          searchList[index].wallet,
+                                          style: suffixTextStyle,
+                                        ))
+                                      ]),
+                                    ),
+                                    SizedBox(height: 5),
+
+                                    //TOTAL AMOUNT
+                                    Container(
+//                    color: Colors.blue,
+                                      child: Row(children: <Widget>[
+                                        Expanded(
+                                          flex: 1,
+                                          child: Text(
+                                            "Order Amount: ",
+                                            style: prefixTextStyle,
+                                          ),
+                                        ),
+                                        Expanded(
+                                            child: Text(
+                                          showInfo(
+                                              searchList[index].totalAmount),
+                                          style: suffixTextStyle,
+                                        ))
+                                      ]),
+                                    ),
+                                    SizedBox(height: 5),
+
+                                    //total orders
+                                    Container(
+//                    color: Colors.blue,
+                                      child: Row(children: <Widget>[
+                                        Expanded(
+                                          flex: 1,
+                                          child: Text(
+                                            "Total Orders: ",
+                                            style: prefixTextStyle,
+                                          ),
+                                        ),
+                                        Expanded(
+                                            child: Text(
+                                          showInfo(
+                                              searchList[index].totalOrders),
+                                          style: suffixTextStyle,
+                                        ))
+                                      ]),
+                                    ),
+                                    SizedBox(height: 5),
+
+                                    //REWARDS
+                                    Container(
+//                    color: Colors.blue,
+                                      child: Row(children: <Widget>[
+                                        Expanded(
+                                          flex: 1,
+                                          child: Text(
+                                            "Rewards: ",
+                                            style: prefixTextStyle,
+                                          ),
+                                        ),
+                                        Expanded(
+                                            child: Text(
+                                          showInfo(
+                                              searchList[index].totalRewards),
+                                          style: suffixTextStyle,
+                                        ))
+                                      ]),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Row(
+                                children: <Widget>[
                                   Expanded(
-                                    flex: 1,
-                                    child: Text(
-                                      "Wallet: ",
-                                      style: prefixTextStyle,
+                                    child: GestureDetector(
+                                      onTap: () async {
+                                        var url =
+                                            'tel:${searchList[index].userPhone}';
+                                        if (await canLaunch(url))
+                                          await launch(url);
+                                        else
+                                          throw 'cant';
+                                      },
+                                      child: Container(
+                                        color: Theme.of(context).primaryColor,
+                                        constraints: BoxConstraints(
+                                          maxHeight: 40,
+                                        ),
+                                        child: Center(
+                                          child: Text(
+                                            "CALL",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontFamily: UtilsImporter()
+                                                    .stringUtils
+                                                    .HKGrotesk,
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w700),
+                                          ),
+                                        ),
+                                      ),
                                     ),
                                   ),
+                                  SizedBox(width: 1),
                                   Expanded(
-                                      flex: 2,
-                                      child: Text(
-                                        searchList[index].wallet,
-                                        style: suffixTextStyle,
-                                      ))
-                                ]),
-                              ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
-
-                              //TOTAL AMOUNT
-                              Container(
-//                    color: Colors.blue,
-                                child: Row(children: <Widget>[
-                                  Expanded(
-                                    flex: 1,
-                                    child: Text(
-                                      "Total Amount: ",
-                                      style: prefixTextStyle,
+                                    child: GestureDetector(
+                                      onTap: () async {
+                                        var url =
+                                            'mailto:${searchList[index].userEmail}';
+                                        if (await canLaunch(url))
+                                          await launch(url);
+                                        else
+                                          throw 'cant';
+                                      },
+                                      child: Container(
+                                        color: Theme.of(context).primaryColor,
+                                        constraints: BoxConstraints(
+                                          maxHeight: 40,
+                                        ),
+                                        child: Center(
+                                          child: Text(
+                                            "EMAIL",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontFamily: UtilsImporter()
+                                                    .stringUtils
+                                                    .HKGrotesk,
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w700),
+                                          ),
+                                        ),
+                                      ),
                                     ),
                                   ),
-                                  Expanded(
-                                      flex: 2,
-                                      child: Text(
-                                        showInfo(searchList[index].totalAmount),
-                                        style: suffixTextStyle,
-                                      ))
-                                ]),
-                              ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
-
-                              //total orders
-                              Container(
-//                    color: Colors.blue,
-                                child: Row(children: <Widget>[
-                                  Expanded(
-                                    flex: 1,
-                                    child: Text(
-                                      "Total Orders: ",
-                                      style: prefixTextStyle,
-                                    ),
-                                  ),
-                                  Expanded(
-                                      flex: 2,
-                                      child: Text(
-                                        showInfo(searchList[index].totalOrders),
-                                        style: suffixTextStyle,
-                                      ))
-                                ]),
-                              ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
-
-                              //REWARDS
-                              Container(
-//                    color: Colors.blue,
-                                child: Row(children: <Widget>[
-                                  Expanded(
-                                    flex: 1,
-                                    child: Text(
-                                      "Rewards: ",
-                                      style: prefixTextStyle,
-                                    ),
-                                  ),
-                                  Expanded(
-                                      flex: 2,
-                                      child: Text(
-                                        showInfo(
-                                            searchList[index].totalRewards),
-                                        style: suffixTextStyle,
-                                      ))
-                                ]),
-                              ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
+                                ],
+                                mainAxisSize: MainAxisSize.max,
+                              )
                             ],
                           ),
                         );

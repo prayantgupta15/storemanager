@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:storemanager/home_screens/home_screen.dart';
-import 'package:storemanager/models/loginModel.dart';
-import 'package:storemanager/services/performLogin.dart';
-import 'package:storemanager/utils/common_utils.dart';
-import 'package:storemanager/utils/shared_preferences_util.dart';
-import 'package:storemanager/utils/utils_importer.dart';
+import 'package:bazarmanager/home_screens/home_screen.dart';
+import 'package:bazarmanager/models/loginModel.dart';
+import 'package:bazarmanager/services/performLogin.dart';
+import 'package:bazarmanager/utils/common_utils.dart';
+import 'package:bazarmanager/utils/shared_preferences_util.dart';
+import 'package:bazarmanager/utils/utils_importer.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -95,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     TextStyle formTitleTextStyle = TextStyle(
         fontFamily: UtilsImporter().stringUtils.HKGrotesk,
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.w700,
         fontSize: 18.0,
         color: Theme.of(context).primaryColorDark);
     TextStyle labelTextStyle = TextStyle(
@@ -104,10 +104,6 @@ class _LoginScreenState extends State<LoginScreen> {
       fontWeight: FontWeight.w700,
       fontFamily: UtilsImporter().stringUtils.HKGrotesk,
     );
-    TextStyle headingStyle = TextStyle(
-        fontSize: 40,
-        fontWeight: FontWeight.bold,
-        fontFamily: UtilsImporter().stringUtils.HKGrotesk);
     TextStyle subHeadingTextStyle = TextStyle(
       color: UtilsImporter().colorUtils.greycolor,
       fontSize: 15,
@@ -138,8 +134,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             SizedBox(height: 80),
-                            Text(
-                                getTranslated(context, 'TITLE_KEY'),
+                            Text(getTranslated(context, 'TITLE_KEY'),
 //                                "Welcome to Store Manager",
                                 style: formTitleTextStyle),
                             SizedBox(height: 10),
@@ -261,9 +256,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                 }));
                               } else {
                                 Fluttertoast.showToast(
-                                    msg: "WRONG CREDENTIALS",
+                                    msg: "Wrong Credentials",
                                     toastLength: Toast.LENGTH_LONG,
-                                    gravity: ToastGravity.CENTER,
+                                    gravity: ToastGravity.BOTTOM,
                                     backgroundColor:
                                         Theme.of(context).primaryColor,
                                     textColor:
@@ -283,9 +278,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                 color: Theme.of(context).primaryColor),
                             child: Center(
                                 child: Text(
-                                    getTranslated(context, 'LOGIN_BUTTON_KEY'),
+                              getTranslated(context, 'LOGIN_BUTTON_KEY'),
                               style: TextStyle(
                                 fontSize: 20,
+                                color: Colors.white,
                                 fontFamily:
                                     UtilsImporter().stringUtils.HKGrotesk,
                                 fontWeight: FontWeight.bold,

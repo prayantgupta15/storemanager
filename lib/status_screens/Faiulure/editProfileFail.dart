@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:storemanager/utils/common_utils.dart';
-import 'package:storemanager/utils/utils_importer.dart';
+import 'package:bazarmanager/utils/common_utils.dart';
+import 'package:bazarmanager/utils/utils_importer.dart';
 
 class EditProfileFail extends StatefulWidget {
   @override
@@ -37,7 +37,7 @@ class _EditProfileFailState extends State<EditProfileFail> {
                       ),
                       SizedBox(width: 20),
                       Text(
-                        "Edit Profile",
+                        getTranslated(context, 'UPDATE_PROFILE_KEY'),
                         style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
@@ -73,7 +73,7 @@ class _EditProfileFailState extends State<EditProfileFail> {
                 Container(
                     child: Center(
                   child: Text(
-                  getTranslated(context, 'EDIT_PROFILE_FAIL_KEY'),
+                    getTranslated(context, 'EDIT_PROFILE_FAIL_KEY'),
                     style: suffixTextStyle,
                   ),
                 )),

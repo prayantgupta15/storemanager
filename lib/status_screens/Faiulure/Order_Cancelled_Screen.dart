@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:storemanager/utils/utils_importer.dart';
+import 'package:bazarmanager/utils/common_utils.dart';
+import 'package:bazarmanager/utils/utils_importer.dart';
 
 class OrderCancelledScreen extends StatefulWidget {
   @override
@@ -37,7 +38,7 @@ class _OrderCancelledScreenState extends State<OrderCancelledScreen> {
                       ),
                       SizedBox(width: 20),
                       Text(
-                        "Order Details",
+                        getTranslated(context, 'ORDER_DETAILS_KEY'),
                         style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
@@ -73,7 +74,7 @@ class _OrderCancelledScreenState extends State<OrderCancelledScreen> {
                 Container(
                     child: Center(
                   child: Text(
-                    "Order has been Cancelled.",
+                    getTranslated(context, 'ORDER_CANCELLED_KEY'),
                     style: suffixTextStyle,
                   ),
                 )),

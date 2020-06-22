@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:storemanager/utils/common_utils.dart';
-import 'package:storemanager/utils/utils_importer.dart';
+import 'package:bazarmanager/utils/common_utils.dart';
+import 'package:bazarmanager/utils/utils_importer.dart';
 
 class AssignSuccessfullScreen extends StatefulWidget {
   @override
@@ -40,7 +40,7 @@ class _AssignSuccessfullScreenState extends State<AssignSuccessfullScreen> {
                       ),
                       SizedBox(width: 20),
                       Text(
-                        "Assign Delivery Boy",
+                        getTranslated(context, 'SELECT_DELIVERY_BOY'),
                         style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
@@ -76,7 +76,8 @@ class _AssignSuccessfullScreenState extends State<AssignSuccessfullScreen> {
                 Container(
                     child: Center(
                   child: Text(
-                  getTranslated(context, 'SELECT_DELIVERY_BOY_SUCCESSFUL_KEY'),
+                    getTranslated(
+                        context, 'SELECT_DELIVERY_BOY_SUCCESSFUL_KEY'),
                     style: suffixTextStyle,
                   ),
                 )),

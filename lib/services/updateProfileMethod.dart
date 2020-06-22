@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:storemanager/models/profile.dart';
-import 'package:storemanager/utils/utils_importer.dart';
+import 'package:bazarmanager/models/profile.dart';
+import 'package:bazarmanager/utils/utils_importer.dart';
 
 Future<bool> updateProfile(Profile profileItem) {
   print(profileItem.toJson());

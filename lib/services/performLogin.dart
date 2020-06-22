@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:storemanager/models/loginModel.dart';
-import 'package:storemanager/utils/shared_preferences_util.dart';
-import 'package:storemanager/utils/utils_importer.dart';
+import 'package:bazarmanager/models/loginModel.dart';
+import 'package:bazarmanager/utils/shared_preferences_util.dart';
+import 'package:bazarmanager/utils/utils_importer.dart';
 
 Future<bool> performLogin(LoginModel loginModel) async {
   print("perform");

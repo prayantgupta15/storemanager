@@ -4,13 +4,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:storemanager/models/profile.dart';
-import 'package:storemanager/services/updateProfileMethod.dart';
-import 'package:storemanager/status_screens/Faiulure/editProfileFail.dart';
-import 'package:storemanager/status_screens/succefull/profileUpdateSuccess.dart';
-import 'package:storemanager/utils/common_utils.dart';
-import 'package:storemanager/utils/shared_preferences_util.dart';
-import 'package:storemanager/utils/utils_importer.dart';
+import 'package:bazarmanager/models/profile.dart';
+import 'package:bazarmanager/services/updateProfileMethod.dart';
+import 'package:bazarmanager/status_screens/Faiulure/editProfileFail.dart';
+import 'package:bazarmanager/status_screens/succefull/profileUpdateSuccess.dart';
+import 'package:bazarmanager/utils/common_utils.dart';
+import 'package:bazarmanager/utils/shared_preferences_util.dart';
+import 'package:bazarmanager/utils/utils_importer.dart';
 
 class EditProfilescreen extends StatefulWidget {
   @override
@@ -74,18 +74,17 @@ class _EditProfilescreenState extends State<EditProfilescreen> {
   final FocusNode _mobileFocus = FocusNode();
   final FocusNode _emailAddressFocus = FocusNode();
 
-  TextStyle labelTextStyle = TextStyle(
-    color: UtilsImporter().colorUtils.greycolor,
-    fontFamily: UtilsImporter().stringUtils.HKGrotesk,
-  );
-
   final _formKey = GlobalKey<FormState>();
   bool _isLoading = false;
   @override
   Widget build(BuildContext context) {
+    TextStyle labelTextStyle = TextStyle(
+      color: Theme.of(context).primaryColor,
+      fontFamily: UtilsImporter().stringUtils.HKGrotesk,
+    );
     TextStyle formTitleTextStyle = TextStyle(
         fontFamily: UtilsImporter().stringUtils.HKGrotesk,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w700,
         fontSize: 15.0,
         color: Theme.of(context).primaryColorDark);
 
@@ -104,6 +103,7 @@ class _EditProfilescreenState extends State<EditProfilescreen> {
                     child: Column(
                       children: <Widget>[
                         Container(
+                          //APPBAR
                           child: Row(
                             children: <Widget>[
                               InkWell(
@@ -129,155 +129,149 @@ class _EditProfilescreenState extends State<EditProfilescreen> {
                           ),
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height / 20,
-                        ),
-                        CircleAvatar(
-                          backgroundImage: AssetImage('assets/icons.png'),
-                          radius: MediaQuery.of(context).size.width / 10,
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height / 20,
-                        ),
+                            height: MediaQuery.of(context).size.height / 20),
                         Container(
-                          padding: EdgeInsets.all(20),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(
-                              color: Theme.of(context).primaryColor,
-                              width: 5.0,
-                            ),
-                          ),
+                          margin: EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 20),
+                          color: Colors.grey.withOpacity(0.2),
                           child: Column(
                             children: <Widget>[
-                              TextFormField(
-                                validator: (String val) {
-                                  if (val.isEmpty)
-                                    return 'Value  cannot be empty';
-                                },
-                                cursorColor: Theme.of(context).primaryColor,
-                                controller: nameController,
-                                textInputAction: TextInputAction.next,
-                                autofocus: false,
-                                focusNode: _nameFocus,
-                                onFieldSubmitted: (value) {
-                                  FocusScope.of(context)
-                                      .requestFocus(_mobileFocus);
-                                },
-                                style: formTitleTextStyle,
-                                decoration: InputDecoration(
-                                    labelText: "Store Name",
-                                    labelStyle: labelTextStyle,
-                                    border: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(20))),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 10.0, horizontal: 20),
+                                child: Column(
+                                  children: <Widget>[
+                                    TextFormField(
+                                      validator: (String val) {
+                                        if (val.isEmpty)
+                                          return 'Value  cannot be empty';
+                                      },
+                                      cursorColor:
+                                          Theme.of(context).primaryColor,
+                                      controller: nameController,
+                                      textInputAction: TextInputAction.next,
+                                      autofocus: false,
+                                      focusNode: _nameFocus,
+                                      onFieldSubmitted: (value) {
+                                        FocusScope.of(context)
+                                            .requestFocus(_mobileFocus);
+                                      },
+                                      style: formTitleTextStyle,
+                                      decoration: InputDecoration(
+                                        labelText: "Store Name",
+                                        labelStyle: labelTextStyle,
+                                      ),
+                                    ),
+                                    SizedBox(height: 20),
+                                    TextFormField(
+                                      validator: (String val) {
+                                        if (val.isEmpty)
+                                          return 'Value  cannot be empty';
+                                      },
+                                      cursorColor:
+                                          Theme.of(context).primaryColor,
+                                      controller: mobileController,
+                                      textInputAction: TextInputAction.next,
+                                      keyboardType: TextInputType.number,
+                                      autofocus: false,
+                                      focusNode: _mobileFocus,
+                                      onFieldSubmitted: (value) {
+                                        FocusScope.of(context)
+                                            .requestFocus(_emailAddressFocus);
+                                      },
+                                      style: formTitleTextStyle,
+                                      decoration: InputDecoration(
+                                        labelText: "Mobile Number",
+                                        labelStyle: labelTextStyle,
+                                      ),
+                                    ),
+                                    SizedBox(height: 20),
+                                    TextFormField(
+                                      validator: (String val) {
+                                        if (val.isEmpty)
+                                          return 'Value  cannot be empty';
+                                      },
+                                      cursorColor:
+                                          Theme.of(context).primaryColor,
+                                      controller: emailController,
+                                      textInputAction: TextInputAction.done,
+                                      keyboardType: TextInputType.emailAddress,
+                                      autofocus: false,
+                                      focusNode: _emailAddressFocus,
+                                      onFieldSubmitted: (value) {
+                                        _emailAddressFocus.unfocus();
+                                      },
+                                      style: formTitleTextStyle,
+                                      decoration: InputDecoration(
+                                        labelText: "Email",
+                                        labelStyle: labelTextStyle,
+                                      ),
+                                    ),
+                                    SizedBox(height: 20),
+                                  ],
+                                ),
                               ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              TextFormField(
-                                validator: (String val) {
-                                  if (val.isEmpty)
-                                    return 'Value  cannot be empty';
-                                },
-                                cursorColor: Theme.of(context).primaryColor,
-                                controller: mobileController,
-                                textInputAction: TextInputAction.next,
-                                keyboardType: TextInputType.number,
-                                autofocus: false,
-                                focusNode: _mobileFocus,
-                                onFieldSubmitted: (value) {
-                                  FocusScope.of(context)
-                                      .requestFocus(_emailAddressFocus);
-                                },
-                                style: formTitleTextStyle,
-                                decoration: InputDecoration(
-                                  labelText: "Mobile Number",
-                                  labelStyle: labelTextStyle,
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(20),
+                              GestureDetector(
+                                child: Container(
+                                  height: 40,
+                                  color: Theme.of(context).primaryColor,
+                                  child: Center(
+                                    child: Text(
+                                      getTranslated(
+                                          context, 'UPDATE_PROFILE_BUTTON_KEY'),
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                        fontFamily: UtilsImporter()
+                                            .stringUtils
+                                            .HKGrotesk,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              TextFormField(
-                                validator: (String val) {
-                                  if (val.isEmpty)
-                                    return 'Value  cannot be empty';
+                                onTap: () async {
+                                  FocusScope.of(context).unfocus();
+                                  if (_formKey.currentState.validate()) {
+                                    setState(() {
+                                      _isLoading = true;
+                                    });
+                                    print("VALIDATION TREU");
+                                    bool result = await updateProfile(
+                                      Profile(
+                                          store_name: nameController.text,
+                                          number: (mobileController.text),
+                                          email: emailController.text,
+                                          store_id: await SharedPreferencesUtil
+                                              .getStoreId()
+//                                    store_id: '224'
+                                          ),
+                                    );
+                                    print("RESULT" + result.toString());
+                                    result
+                                        ? Navigator.push(context,
+                                            CupertinoPageRoute(
+                                                builder: (context) {
+                                            _isLoading = false;
+                                            nameController.clear();
+                                            mobileController.clear();
+                                            emailController.clear();
+                                            FocusScope.of(context).unfocus();
+                                            return EditProfilesuccess();
+                                          }))
+                                        : Navigator.push(context,
+                                            CupertinoPageRoute(
+                                                builder: (context) {
+                                            _isLoading = false;
+                                            FocusScope.of(context).unfocus();
+                                            return EditProfileFail();
+                                          }));
+                                  } else
+                                    print("ALL VALUES ARE NOT ENTRED");
                                 },
-                                cursorColor: Theme.of(context).primaryColor,
-                                controller: emailController,
-                                textInputAction: TextInputAction.done,
-                                keyboardType: TextInputType.emailAddress,
-                                autofocus: false,
-                                focusNode: _emailAddressFocus,
-                                onFieldSubmitted: (value) {
-                                  _emailAddressFocus.unfocus();
-                                },
-                                style: formTitleTextStyle,
-                                decoration: InputDecoration(
-                                  labelText: "Email",
-                                  labelStyle: labelTextStyle,
-                                  border: new OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(20)),
-                                ),
                               ),
                             ],
                           ),
-                        ),
-                        SizedBox(
-                            height: MediaQuery.of(context).size.height / 30),
-                        RaisedButton(
-                          color: Theme.of(context).primaryColor,
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 30, vertical: 8),
-                          child: Text(
-                            "Update Profile",
-                            style: TextStyle(
-                              color: Theme.of(context).primaryColorDark,
-                              fontSize: 20,
-                              fontFamily: UtilsImporter().stringUtils.HKGrotesk,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          onPressed: () async {
-                            FocusScope.of(context).unfocus();
-                            if (_formKey.currentState.validate()) {
-                              setState(() {
-                                _isLoading = true;
-                              });
-                              print("VALIDATION TREU");
-                              bool result = await updateProfile(
-                                Profile(
-                                    store_name: nameController.text,
-                                    number: (mobileController.text),
-                                    email: emailController.text,
-                                    store_id:
-                                        await SharedPreferencesUtil.getStoreId()
-//                                    store_id: '224'
-                                    ),
-                              );
-                              print("RESULT" + result.toString());
-                              result
-                                  ? Navigator.push(context,
-                                      CupertinoPageRoute(builder: (context) {
-                                      _isLoading = false;
-                                      nameController.clear();
-                                      mobileController.clear();
-                                      emailController.clear();
-                                      FocusScope.of(context).unfocus();
-                                      return EditProfilesuccess();
-                                    }))
-                                  : Navigator.push(context,
-                                      CupertinoPageRoute(builder: (context) {
-                                      _isLoading = false;
-                                      FocusScope.of(context).unfocus();
-                                      return EditProfileFail();
-                                    }));
-                            } else
-                              print("ALL VALUES ARE NOT ENTRED");
-                          },
                         ),
                       ],
                     ),

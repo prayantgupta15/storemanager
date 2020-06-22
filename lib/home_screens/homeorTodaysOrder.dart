@@ -6,15 +6,15 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:storemanager/models/allOrders.dart';
-import 'package:storemanager/models/allProducts.dart';
-import 'package:storemanager/services/getDeliveryBoysList.dart';
-import 'package:storemanager/services/getTodaysOrders.dart';
-import 'package:storemanager/status_screens/Faiulure/Order_Cancelled_Screen.dart';
-import 'package:storemanager/status_screens/Order_Details_Screen.dart';
-import 'package:storemanager/status_screens/assign_screen.dart';
-import 'package:storemanager/utils/common_utils.dart';
-import 'package:storemanager/utils/utils_importer.dart';
+import 'package:bazarmanager/models/allOrders.dart';
+import 'package:bazarmanager/models/allProducts.dart';
+import 'package:bazarmanager/services/getDeliveryBoysList.dart';
+import 'package:bazarmanager/services/getTodaysOrders.dart';
+import 'package:bazarmanager/status_screens/Faiulure/Order_Cancelled_Screen.dart';
+import 'package:bazarmanager/status_screens/Order_Details_Screen.dart';
+import 'package:bazarmanager/status_screens/assign_screen.dart';
+import 'package:bazarmanager/utils/common_utils.dart';
+import 'package:bazarmanager/utils/utils_importer.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomeorTodaysOrdersScreen extends StatefulWidget {
@@ -93,6 +93,13 @@ class _HomeorTodaysOrdersScreenState extends State<HomeorTodaysOrdersScreen> {
   @override
   Widget build(BuildContext context) {
     print(("BUILD"));
+
+//TEXT STYLES
+    TextStyle bottomRowStyle = TextStyle(
+        color: Colors.white,
+        fontFamily: UtilsImporter().stringUtils.HKGrotesk,
+        fontSize: 15,
+        fontWeight: FontWeight.w700);
     TextStyle suffixTextStyle = TextStyle(
         color: Theme.of(context).primaryColorDark,
         fontFamily: UtilsImporter().stringUtils.HKGrotesk,
@@ -151,40 +158,51 @@ class _HomeorTodaysOrdersScreenState extends State<HomeorTodaysOrdersScreen> {
                 slivers: <Widget>[
                   SliverAppBar(
                     backgroundColor: Theme.of(context).primaryColorLight,
-                    floating: true,
-                    expandedHeight: 140,
-                    actions: <Widget>[
-                      IconButton(
-                        icon: Icon(Icons.search),
-                        color: Theme.of(context).primaryColor,
-                        onPressed: () {
-                          setState(() {
-                            width = MediaQuery.of(context).size.width * 0.7;
-                          });
-                        },
-                      )
-                    ],
+                    floating: false,
+                    expandedHeight: 120,
                     flexibleSpace: FlexibleSpaceBar(
                       background: Container(
-                        child: Align(
-                          alignment: Alignment.bottomCenter,
-                          child: AnimatedContainer(
-                              padding: EdgeInsets.only(bottom: 10),
-                              duration: Duration(milliseconds: 800),
-                              width: width,
+                        alignment: Alignment.bottomCenter,
+                        padding: EdgeInsets.symmetric(horizontal: 35),
+                        child: Row(
+                          children: <Widget>[
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(10),
+                                  bottomLeft: Radius.circular(10),
+                                ),
+                                color: Theme.of(context).primaryColor,
+                              ),
+                              height: 50,
+                              padding: EdgeInsets.all(10),
+                              child: Icon(
+                                Icons.search,
+                                color: Colors.white,
+                              ),
+                            ),
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(10),
+                                  bottomRight: Radius.circular(10),
+                                ),
+                              ),
+                              constraints: BoxConstraints(maxHeight: 50),
+                              width: MediaQuery.of(context).size.width * 0.68,
                               child: TextField(
                                 autofocus: false,
                                 controller: searchController,
                                 cursorColor: Theme.of(context).primaryColor,
                                 style: formTitleTextStyle,
                                 decoration: InputDecoration(
-                                  helperText:
-                                      "Search by OrderId, DeliveryBoy, Soceity, Receiver Name",
-                                  helperMaxLines: 2,
-                                  hintText: "Eg. City Name",
-                                  labelText: "Search",
-                                  labelStyle: labelTextStyle,
-                                ),
+                                    fillColor: Colors.grey.withOpacity(0.2),
+                                    filled: true,
+                                    border: InputBorder.none,
+                                    hintText:
+                                        "Search by OrderId, DeliveryBoy, Soceity, Receiver Name",
+                                    hintMaxLines: 2,
+                                    hintStyle: TextStyle(fontSize: 12)),
                                 onChanged: (text) {
                                   searchList = List<AllOrders>();
 
@@ -231,7 +249,9 @@ class _HomeorTodaysOrdersScreenState extends State<HomeorTodaysOrdersScreen> {
 //                                  print(searchList.length.toString());
                                   });
                                 },
-                              )),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -259,65 +279,310 @@ class _HomeorTodaysOrdersScreenState extends State<HomeorTodaysOrdersScreen> {
                         },
                         child: Container(
                           margin: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 15),
+                              vertical: 10, horizontal: 35),
                           width: MediaQuery.of(context).size.width,
-                          padding: EdgeInsets.all(18),
                           decoration: BoxDecoration(
-                            color: Theme.of(context).primaryColorLight,
-                            border: Border.all(
-                              color: Theme.of(context).primaryColor,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.grey.withOpacity(0.2),
                           ),
                           child: Column(
                             children: <Widget>[
-//                            STATUS
-                              Container(
-//                    color: Colors.red,
-                                child: Row(children: <Widget>[
-                                  Expanded(
-                                      child: Text("Status: ",
-                                          style: prefixTextStyle)),
-                                  Expanded(
-                                      child:
-                                          trackOrder(searchList[index].status))
-                                ]),
-                              ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
-
-//                            ASSIGN TO
-                              searchList[index].status != '3' &&
-                                      searchList[index].status != '4'
-                                  ? Container(
+                              Padding(
+                                padding: const EdgeInsets.all(20.0),
+                                child: Column(
+                                  children: <Widget>[
+                                    //STATUS
+                                    Container(
 //                    color: Colors.red,
                                       child: Row(children: <Widget>[
                                         Expanded(
-                                            flex: 1,
-                                            child: Text("Assign To: ",
+                                            child: Text("Status: ",
                                                 style: prefixTextStyle)),
-                                        searchList[index].assignTo !=
-                                                "0" //DELIVERY BOY ASSIGNED
-                                            ? Expanded(
-                                                flex: 2,
-                                                child: Text(
-                                                  "ID:\t" +
-                                                      searchList[index]
-                                                          .assignTo +
-                                                      "\n" +
-                                                      "Name:\t" +
-                                                      getBoyName(
-                                                          searchList[index]
-                                                              .assignTo),
-                                                  style: suffixTextStyle,
-                                                ),
-                                              )
-                                            : RaisedButton(
+                                        Expanded(
+                                          child: trackOrder(
+                                              searchList[index].status),
+                                        )
+                                      ]),
+                                    ),
+                                    SizedBox(height: 5),
+
+                                    //ASSIGN TO
+                                    searchList[index].status != '3' &&
+                                            searchList[index].status != '4'
+                                        ? Container(
+//                    color: Colors.red,
+                                            child: Row(children: <Widget>[
+                                              Expanded(
+                                                  flex: 1,
+                                                  child: Text("Assign To: ",
+                                                      style: prefixTextStyle)),
+                                              searchList[index].assignTo != "0"
+                                                  ? Expanded(
+                                                      child: Text(
+                                                        "ID:\t" +
+                                                            searchList[index]
+                                                                .assignTo +
+                                                            "\nName:\t" +
+                                                            getBoyName(
+                                                                searchList[
+                                                                        index]
+                                                                    .assignTo),
+                                                        style: suffixTextStyle,
+                                                      ),
+                                                    )
+                                                  : RaisedButton(
+                                                      color: Theme.of(context)
+                                                          .primaryColor,
+                                                      child: Text(
+                                                        "Assign Order",
+                                                        style: TextStyle(
+                                                            color: Colors.white,
+                                                            fontFamily:
+                                                                UtilsImporter()
+                                                                    .stringUtils
+                                                                    .HKGrotesk,
+                                                            fontSize: 15,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w700),
+                                                      ),
+                                                      onPressed: () {
+                                                        Navigator.push(context,
+                                                            CupertinoPageRoute(
+                                                                builder:
+                                                                    (context) {
+                                                          return AssignOrderScreen(
+                                                              Orderid:
+                                                                  searchList[
+                                                                          index]
+                                                                      .saleId);
+                                                        }));
+                                                      },
+                                                    )
+                                            ]),
+                                          )
+                                        : Container(),
+                                    SizedBox(height: 5),
+
+                                    //ORDER ID
+                                    Container(
+//                    color: Colors.blue,
+                                      child: Row(children: <Widget>[
+                                        Expanded(
+                                          flex: 1,
+                                          child: Text(
+                                            "Order ID: ",
+                                            style: prefixTextStyle,
+                                          ),
+                                        ),
+                                        Expanded(
+                                            child: Text(
+                                          showInfo(searchList[index].saleId),
+                                          style: suffixTextStyle,
+                                        ))
+                                      ]),
+                                    ),
+                                    SizedBox(height: 5),
+
+                                    //NAME
+                                    Container(
+//                    color: Colors.blue,
+                                      child: Row(children: <Widget>[
+                                        Expanded(
+                                          flex: 1,
+                                          child: Text(
+                                            "Name: ",
+                                            style: prefixTextStyle,
+                                          ),
+                                        ),
+                                        Expanded(
+                                            child: Text(
+                                          showInfo(
+                                              searchList[index].receiverName),
+                                          style: suffixTextStyle,
+                                        ))
+                                      ]),
+                                    ),
+                                    SizedBox(height: 5),
+
+                                    //HOUSENO
+                                    Container(
+//                    color: Colors.blue,
+                                      child: Row(children: <Widget>[
+                                        Expanded(
+                                          flex: 1,
+                                          child: Text(
+                                            "House No.: ",
+                                            style: prefixTextStyle,
+                                          ),
+                                        ),
+                                        Expanded(
+                                            child: Text(
+                                          showInfo(searchList[index].houseNo),
+                                          style: suffixTextStyle,
+                                        ))
+                                      ]),
+                                    ),
+                                    SizedBox(height: 5),
+
+                                    //SOCIETY
+                                    Container(
+//                    color: Colors.blue,
+                                      child: Row(children: <Widget>[
+                                        Expanded(
+                                          flex: 1,
+                                          child: Text(
+                                            "Soceity: ",
+                                            style: prefixTextStyle,
+                                          ),
+                                        ),
+                                        Expanded(
+                                            child: Text(
+                                          showInfo(
+                                              searchList[index].socityName),
+                                          style: suffixTextStyle,
+                                        ))
+                                      ]),
+                                    ),
+                                    SizedBox(height: 5),
+
+                                    // DATE
+                                    Container(
+//                    color: Colors.blue,
+                                      child: Row(children: <Widget>[
+                                        Expanded(
+                                          flex: 1,
+                                          child: Text(
+                                            "Date: ",
+                                            style: prefixTextStyle,
+                                          ),
+                                        ),
+                                        Expanded(
+                                            child: Text(
+                                          showInfo(searchList[index].onDate),
+                                          style: suffixTextStyle,
+                                        ))
+                                      ]),
+                                    ),
+                                    SizedBox(height: 5),
+
+                                    //TIME
+                                    Container(
+//                    color: Colors.blue,
+                                      child: Row(children: <Widget>[
+                                        Expanded(
+                                          flex: 1,
+                                          child: Text(
+                                            "Delivery Time: ",
+                                            style: prefixTextStyle,
+                                          ),
+                                        ),
+                                        Expanded(
+                                            child: Text(
+                                          showInfo(searchList[index]
+                                                  .deliveryTimeFrom) +
+                                              " to " +
+                                              showInfo(searchList[index]
+                                                  .deliveryTimeTo),
+                                          style: suffixTextStyle,
+                                        ))
+                                      ]),
+                                    ),
+                                    SizedBox(height: 5),
+
+                                    //ORDER AMOUNT
+                                    Container(
+                                      child: Row(children: <Widget>[
+                                        Expanded(
+                                          flex: 1,
+                                          child: Text(
+                                            "Order Amount: ",
+                                            style: prefixTextStyle,
+                                          ),
+                                        ),
+                                        Expanded(
+                                            child: Text(
+                                          showInfo(
+                                              searchList[index].totalAmount),
+                                          style: suffixTextStyle,
+                                        ))
+                                      ]),
+                                    ),
+                                    SizedBox(height: 5),
+
+                                    //PAYMENT MODE
+                                    Container(
+                                      child: Row(children: <Widget>[
+                                        Expanded(
+                                          flex: 1,
+                                          child: Text(
+                                            "Payment Mode: ",
+                                            style: prefixTextStyle,
+                                          ),
+                                        ),
+                                        Expanded(
+                                            child: Text(
+                                          showInfo(
+                                              searchList[index].paymentMethod),
+                                          style: suffixTextStyle,
+                                        ))
+                                      ]),
+                                    ),
+                                    SizedBox(height: 5),
+                                  ],
+                                ),
+                              ),
+                              Row(
+                                children: <Widget>[
+                                  Expanded(
+                                    child: GestureDetector(
+                                      onTap: () async {
+                                        var url =
+                                            'tel:${searchList[index].receiverMobile}';
+                                        if (await canLaunch(url))
+                                          await launch(url);
+                                        else
+                                          throw 'cant';
+                                      },
+                                      child: Container(
+                                        color: Theme.of(context).primaryColor,
+                                        constraints:
+                                            BoxConstraints(maxHeight: 40),
+                                        child: Center(
+                                          child: Text("CALL",
+                                              style: bottomRowStyle),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(width: 1),
+
+                                  //ASSIGN TO
+                                  searchList[index].status !=
+                                              '3' && //NOT CANCELLED AND NOT COMPLETED SHOW DELIVERY BOY
+                                          searchList[index].status != '4'
+                                      ? searchList[index].assignTo != "0"
+                                          ? //BOY IS ASSIGNED
+                                          Expanded(
+                                              child: Container(
                                                 color: Theme.of(context)
                                                     .primaryColor,
-                                                child: Text("Assign Order"),
-                                                onPressed: () {
+                                                constraints: BoxConstraints(
+                                                    maxHeight: 40),
+                                                child: Center(
+                                                  child: Text(
+                                                    "Assigned To" +
+                                                        getBoyName(
+                                                            searchList[index]
+                                                                .assignTo),
+                                                    style: bottomRowStyle,
+                                                  ),
+                                                ),
+                                              ),
+                                            )
+                                          : //NOT ASSIGNED
+                                          Expanded(
+                                              child: GestureDetector(
+                                                onTap: () {
                                                   Navigator.push(context,
                                                       CupertinoPageRoute(
                                                           builder: (context) {
@@ -327,235 +592,24 @@ class _HomeorTodaysOrdersScreenState extends State<HomeorTodaysOrdersScreen> {
                                                                 .saleId);
                                                   }));
                                                 },
-                                              )
-//                                        : cancelTag()
-                                      ]),
-                                    )
-                                  : Container(
-                                      width: 1,
-                                      height: 1,
-                                    ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
-
-                              //ORDER ID
-                              Container(
-//                    color: Colors.blue,
-                                child: Row(children: <Widget>[
-                                  Expanded(
-                                    flex: 1,
-                                    child: Text(
-                                      "Order ID: ",
-                                      style: prefixTextStyle,
-                                    ),
-                                  ),
-                                  Expanded(
-                                      flex: 2,
-                                      child: Text(
-                                        showInfo(searchList[index].saleId),
-                                        style: suffixTextStyle,
-                                      ))
-                                ]),
-                              ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
-
-                              //NAME
-                              Container(
-//                    color: Colors.blue,
-                                child: Row(children: <Widget>[
-                                  Expanded(
-                                    flex: 1,
-                                    child: Text(
-                                      "Name: ",
-                                      style: prefixTextStyle,
-                                    ),
-                                  ),
-                                  Expanded(
-                                      flex: 2,
-                                      child: Text(
-                                        showInfo(
-                                            searchList[index].receiverName),
-                                        style: suffixTextStyle,
-                                      ))
-                                ]),
-                              ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
-
-//                            CONTACT
-                              Container(
-//                    color: Colors.blue,
-                                child: Row(children: <Widget>[
-                                  Expanded(
-                                    flex: 1,
-                                    child: Text(
-                                      "Contact: ",
-                                      style: prefixTextStyle,
-                                    ),
-                                  ),
-                                  Expanded(
-                                    flex: 2,
-                                    child: Row(
-                                      children: <Widget>[
-                                        Text(
-                                            showInfo(searchList[index]
-                                                .receiverMobile),
-                                            style: suffixTextStyle),
-                                        IconButton(
-                                          icon: Icon(Icons.call),
-                                          color: Colors.green,
-                                          onPressed: () async {
-                                            var url =
-                                                'tel:${searchList[index].receiverMobile}';
-                                            if (await canLaunch(url))
-                                              await launch(url);
-                                            else
-                                              throw 'cant';
-                                          },
-                                        )
-                                      ],
-                                    ),
-                                  )
-                                ]),
-                              ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
-
-//                            HOUSENO
-                              Container(
-//                    color: Colors.blue,
-                                child: Row(children: <Widget>[
-                                  Expanded(
-                                    flex: 1,
-                                    child: Text(
-                                      "House No.: ",
-                                      style: prefixTextStyle,
-                                    ),
-                                  ),
-                                  Expanded(
-                                      flex: 2,
-                                      child: Text(
-                                        showInfo(searchList[index].houseNo),
-                                        style: suffixTextStyle,
-                                      ))
-                                ]),
-                              ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
-
-//                            SOCIETY
-                              Container(
-//                    color: Colors.blue,
-                                child: Row(children: <Widget>[
-                                  Expanded(
-                                    flex: 1,
-                                    child: Text(
-                                      "Soceity: ",
-                                      style: prefixTextStyle,
-                                    ),
-                                  ),
-                                  Expanded(
-                                      flex: 2,
-                                      child: Text(
-                                        showInfo(searchList[index].socityName),
-                                        style: suffixTextStyle,
-                                      ))
-                                ]),
-                              ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
-
-//                             DATE
-                              Container(
-//                    color: Colors.blue,
-                                child: Row(children: <Widget>[
-                                  Expanded(
-                                    flex: 1,
-                                    child: Text(
-                                      "Date: ",
-                                      style: prefixTextStyle,
-                                    ),
-                                  ),
-                                  Expanded(
-                                      flex: 2,
-                                      child: Text(
-                                        showInfo(searchList[index].onDate),
-                                        style: suffixTextStyle,
-                                      ))
-                                ]),
-                              ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
-
-//                            TIME
-                              Container(
-//                    color: Colors.blue,
-                                child: Row(children: <Widget>[
-                                  Expanded(
-                                    flex: 1,
-                                    child: Text(
-                                      "Delivery Time: ",
-                                      style: prefixTextStyle,
-                                    ),
-                                  ),
-                                  Expanded(
-                                      flex: 2,
-                                      child: Text(
-                                        showInfo(searchList[index]
-                                                .deliveryTimeFrom) +
-                                            " to " +
-                                            showInfo(searchList[index]
-                                                .deliveryTimeTo),
-                                        style: suffixTextStyle,
-                                      ))
-                                ]),
-                              ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
-
-//                            ORDER AMOUNT
-                              Container(
-                                child: Row(children: <Widget>[
-                                  Expanded(
-                                    flex: 1,
-                                    child: Text(
-                                      "Order Amount: ",
-                                      style: prefixTextStyle,
-                                    ),
-                                  ),
-                                  Expanded(
-                                      flex: 2,
-                                      child: Text(
-                                        showInfo(searchList[index].totalAmount),
-                                        style: suffixTextStyle,
-                                      ))
-                                ]),
-                              ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
-
-//                            PAYMENT MODE
-                              Container(
-                                child: Row(children: <Widget>[
-                                  Expanded(
-                                    flex: 1,
-                                    child: Text(
-                                      "Payment Mode: ",
-                                      style: prefixTextStyle,
-                                    ),
-                                  ),
-                                  Expanded(
-                                      flex: 2,
-                                      child: Text(
-                                        showInfo(
-                                            searchList[index].paymentMethod),
-                                        style: suffixTextStyle,
-                                      ))
-                                ]),
-                              ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
+                                                child: Container(
+                                                  color: Theme.of(context)
+                                                      .primaryColor,
+                                                  constraints: BoxConstraints(
+                                                      maxHeight: 40),
+                                                  child: Center(
+                                                    child: Text(
+                                                      "ASSIGN ORDER",
+                                                      style: bottomRowStyle,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            )
+                                      : Container(),
+                                ],
+                                mainAxisSize: MainAxisSize.max,
+                              )
                             ],
                           ),
                         ),

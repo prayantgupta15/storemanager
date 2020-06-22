@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:storemanager/models/deliveryboy.dart';
-import 'package:storemanager/utils/utils_importer.dart';
+import 'package:bazarmanager/models/deliveryboy.dart';
+import 'package:bazarmanager/utils/utils_importer.dart';
 
 List<DeliveryBoy> list = List<DeliveryBoy>();
 void getBoysList() async {

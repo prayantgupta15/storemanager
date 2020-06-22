@@ -5,8 +5,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:storemanager/localization/demolocalization.dart';
-import 'package:storemanager/utils/utils_importer.dart';
+import 'package:bazarmanager/localization/demolocalization.dart';
+import 'package:bazarmanager/utils/utils_importer.dart';
 
 class CommonUtils {
   Size deviceScreenSize(BuildContext context) {
@@ -64,23 +64,19 @@ void showToast(String message, BuildContext context) {
 
 //TAGS
 inStockTag() {
-  return Align(
-      alignment: Alignment.topRight,
-      child: Text(
-        "In Stock",
-        style: TextStyle(
-            color: Colors.green, fontWeight: FontWeight.bold, fontSize: 15),
-      ));
+  return Text(
+    "In Stock",
+    style: TextStyle(
+        color: Colors.green, fontWeight: FontWeight.bold, fontSize: 15),
+  );
 }
 
 outOfStockTag() {
-  return Align(
-      alignment: Alignment.topRight,
-      child: Text(
-        "Out of Stock",
-        style: TextStyle(
-            color: Colors.red, fontWeight: FontWeight.bold, fontSize: 15),
-      ));
+  return Text(
+    "Out of Stock",
+    style:
+        TextStyle(color: Colors.red, fontWeight: FontWeight.bold, fontSize: 15),
+  );
 }
 
 deliveredTag() {
@@ -94,47 +90,35 @@ deliveredTag() {
 }
 
 pendingTag() {
-  return Align(
-      alignment: Alignment.topRight,
-      child: Text(
-        "PENDING",
-        style: TextStyle(
-            color: Colors.deepOrange,
-            fontWeight: FontWeight.bold,
-            fontSize: 15),
-      ));
+  return Text(
+    "PENDING",
+    style: TextStyle(
+        color: Colors.deepOrange, fontWeight: FontWeight.bold, fontSize: 15),
+  );
 }
 
 outTag() {
-  return Align(
-      alignment: Alignment.topRight,
-      child: Text(
-        "Out For Delivery",
-        style: TextStyle(
-            color: Colors.yellow, fontWeight: FontWeight.bold, fontSize: 15),
-      ));
+  return Text(
+    "Out For Delivery",
+    style: TextStyle(
+        color: Colors.yellow, fontWeight: FontWeight.bold, fontSize: 15),
+  );
 }
 
 cancelTag() {
-  return Align(
-      alignment: Alignment.topRight,
-      child: Text(
-        "CANCELLED",
-        style: TextStyle(
-            color: Colors.red, fontWeight: FontWeight.bold, fontSize: 15),
-      ));
+  return Text(
+    "CANCELLED",
+    style:
+        TextStyle(color: Colors.red, fontWeight: FontWeight.bold, fontSize: 15),
+  );
 }
 
 confirmTag() {
-  return Align(
-      alignment: Alignment.topRight,
-      child: Text(
-        "CONFIRMED",
-        style: TextStyle(
-            color: Colors.greenAccent,
-            fontWeight: FontWeight.bold,
-            fontSize: 15),
-      ));
+  return Text(
+    "CONFIRMED",
+    style: TextStyle(
+        color: Colors.greenAccent, fontWeight: FontWeight.bold, fontSize: 15),
+  );
 }
 
 trackOrder(String status) {

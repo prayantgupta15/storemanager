@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:storemanager/utils/string_utils.dart';
+import 'package:bazarmanager/utils/string_utils.dart';
 
 import 'colors_utils.dart';
 import 'common_utils.dart';

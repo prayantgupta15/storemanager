@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-import 'package:storemanager/models/allAppUsers.dart';
-import 'package:storemanager/utils/utils_importer.dart';
+import 'package:bazarmanager/models/allAppUsers.dart';
+import 'package:bazarmanager/utils/utils_importer.dart';
 
 List<AllAppUsers> AppUsersList = List<AllAppUsers>();
 

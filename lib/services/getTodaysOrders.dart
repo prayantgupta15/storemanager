@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-import 'package:storemanager/models/allOrders.dart';
-import 'package:storemanager/utils/utils_importer.dart';
+import 'package:bazarmanager/models/allOrders.dart';
+import 'package:bazarmanager/utils/utils_importer.dart';
 
 List<AllOrders> TodaysOrdersList;
 Future<List<AllOrders>> getTodaysOrders() async {

@@ -1,15 +1,13 @@
-import 'dart:math';
-
 import 'package:app_settings/app_settings.dart';
+import 'package:bazarmanager/models/allProducts.dart';
+import 'package:bazarmanager/services/getAllProducts.dart';
+import 'package:bazarmanager/utils/common_utils.dart';
+import 'package:bazarmanager/utils/utils_importer.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:storemanager/models/allProducts.dart';
-import 'package:storemanager/services/getAllProducts.dart';
-import 'package:storemanager/utils/common_utils.dart';
-import 'package:storemanager/utils/utils_importer.dart';
 
 class AllProductsScreen extends StatefulWidget {
   @override
@@ -168,39 +166,51 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                             color: Theme.of(context).primaryColorDark,
                             fontFamily: UtilsImporter().stringUtils.HKGrotesk),
                       ),
-                      floating: true,
-                      expandedHeight: 140,
-                      actions: <Widget>[
-                        IconButton(
-                          icon: Icon(Icons.search),
-                          color: Theme.of(context).primaryColor,
-                          onPressed: () {
-                            setState(() {
-                              width = MediaQuery.of(context).size.width * 0.7;
-                            });
-                          },
-                        )
-                      ],
+                      floating: false,
+                      expandedHeight: 120,
                       flexibleSpace: FlexibleSpaceBar(
                         background: Container(
-                          child: Align(
-                            alignment: Alignment.bottomCenter,
-                            child: AnimatedContainer(
-                                padding: EdgeInsets.only(bottom: 10),
-                                duration: Duration(milliseconds: 800),
-                                width: width,
+                          alignment: Alignment.bottomLeft,
+                          padding: EdgeInsets.symmetric(horizontal: 35),
+                          child: Row(
+                            children: <Widget>[
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(10),
+                                    bottomLeft: Radius.circular(10),
+                                  ),
+                                  color: Theme.of(context).primaryColor,
+                                ),
+                                height: 50,
+                                padding: EdgeInsets.all(10),
+                                child: Icon(
+                                  Icons.search,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(10),
+                                    bottomRight: Radius.circular(10),
+                                  ),
+                                ),
+                                constraints: BoxConstraints(maxHeight: 50),
+                                width: MediaQuery.of(context).size.width * 0.68,
                                 child: TextField(
                                   autofocus: false,
                                   controller: searchController,
                                   cursorColor: Theme.of(context).primaryColor,
                                   style: formTitleTextStyle,
                                   decoration: InputDecoration(
-                                    helperText:
+                                    filled: true,
+                                    fillColor: Colors.grey.withOpacity(0.2),
+                                    hintText:
                                         "Search by Product Name, Category Name",
-                                    helperMaxLines: 2,
-                                    hintText: "Eg. Apple",
-                                    labelText: "Search",
-                                    labelStyle: labelTextStyle,
+                                    border: InputBorder.none,
+                                    hintStyle: TextStyle(fontSize: 12),
+                                    hintMaxLines: 2,
                                   ),
                                   onChanged: (text) {
                                     setState(() {
@@ -229,7 +239,9 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                                       print(snapshot.data.length.toString());
                                     });
                                   },
-                                )),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -238,16 +250,11 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                       delegate: SliverChildBuilderDelegate((context, index) {
                         return Container(
                           margin: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 15),
+                              vertical: 10, horizontal: 35),
+                          padding: EdgeInsets.all(20),
                           width: MediaQuery.of(context).size.width,
-                          padding: EdgeInsets.all(18),
                           decoration: BoxDecoration(
-                            color: Theme.of(context).primaryColorLight,
-                            border: Border.all(
-                              color: Theme.of(context).primaryColor,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.grey.withOpacity(0.2),
                           ),
                           child: Column(
                             children: <Widget>[
@@ -265,8 +272,7 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                                   )
                                 ]),
                               ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
+                              SizedBox(height: 5),
 
                               //PRODUCT ID
                               Container(
@@ -280,15 +286,13 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                                     ),
                                   ),
                                   Expanded(
-                                      flex: 2,
                                       child: Text(
-                                        searchList3[index].productId,
-                                        style: suffixTextStyle,
-                                      ))
+                                    searchList3[index].productId,
+                                    style: suffixTextStyle,
+                                  ))
                                 ]),
                               ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
+                              SizedBox(height: 5),
 
                               //CATEGORY ID
                               Container(
@@ -302,15 +306,13 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                                     ),
                                   ),
                                   Expanded(
-                                      flex: 2,
                                       child: Text(
-                                        searchList3[index].categoryId,
-                                        style: suffixTextStyle,
-                                      ))
+                                    searchList3[index].categoryId,
+                                    style: suffixTextStyle,
+                                  ))
                                 ]),
                               ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
+                              SizedBox(height: 5),
 
                               //NAME
                               Container(
@@ -324,15 +326,13 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                                     ),
                                   ),
                                   Expanded(
-                                      flex: 2,
                                       child: SelectableText(
-                                        searchList3[index].productName,
-                                        style: suffixTextStyle,
-                                      ))
+                                    searchList3[index].productName,
+                                    style: suffixTextStyle,
+                                  ))
                                 ]),
                               ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
+                              SizedBox(height: 5),
 
                               //TITLE
                               Container(
@@ -346,15 +346,13 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                                     ),
                                   ),
                                   Expanded(
-                                      flex: 2,
                                       child: SelectableText(
-                                        searchList3[index].title,
-                                        style: suffixTextStyle,
-                                      ))
+                                    searchList3[index].title,
+                                    style: suffixTextStyle,
+                                  ))
                                 ]),
                               ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
+                              SizedBox(height: 5),
 
                               //PRICE
                               Container(
@@ -368,15 +366,13 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                                     ),
                                   ),
                                   Expanded(
-                                      flex: 2,
                                       child: Text(
-                                        searchList3[index].price,
-                                        style: suffixTextStyle,
-                                      ))
+                                    searchList3[index].price,
+                                    style: suffixTextStyle,
+                                  ))
                                 ]),
                               ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
+                              SizedBox(height: 5),
 
                               //MRP
                               Container(
@@ -390,15 +386,13 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                                     ),
                                   ),
                                   Expanded(
-                                      flex: 2,
                                       child: Text(
-                                        searchList3[index].mrp,
-                                        style: suffixTextStyle,
-                                      ))
+                                    searchList3[index].mrp,
+                                    style: suffixTextStyle,
+                                  ))
                                 ]),
                               ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
+                              SizedBox(height: 5),
 
                               //Unit Value
                               Container(
@@ -412,15 +406,13 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                                     ),
                                   ),
                                   Expanded(
-                                      flex: 2,
                                       child: Text(
-                                        searchList3[index].unitValue,
-                                        style: suffixTextStyle,
-                                      ))
+                                    searchList3[index].unitValue,
+                                    style: suffixTextStyle,
+                                  ))
                                 ]),
                               ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
+                              SizedBox(height: 5),
 
                               //Unit
                               Container(
@@ -434,15 +426,13 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                                     ),
                                   ),
                                   Expanded(
-                                      flex: 2,
                                       child: Text(
-                                        searchList3[index].unit,
-                                        style: suffixTextStyle,
-                                      ))
+                                    searchList3[index].unit,
+                                    style: suffixTextStyle,
+                                  ))
                                 ]),
                               ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
+                              SizedBox(height: 5),
 
                               //STOCK VALUE
                               Container(
@@ -452,7 +442,6 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                                       child: Text("Stock: ",
                                           style: prefixTextStyle)),
                                   Expanded(
-                                    flex: 2,
                                     child: Text(
                                       searchList3[index].stock,
                                       style: suffixTextStyle,
@@ -460,8 +449,7 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                                   )
                                 ]),
                               ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
+                              SizedBox(height: 5),
 
                               //Increments
                               Container(
@@ -475,15 +463,13 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                                     ),
                                   ),
                                   Expanded(
-                                      flex: 2,
                                       child: Text(
-                                        searchList3[index].increament,
-                                        style: suffixTextStyle,
-                                      ))
+                                    searchList3[index].increament,
+                                    style: suffixTextStyle,
+                                  ))
                                 ]),
                               ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
+                              SizedBox(height: 5),
 
                               //Rewards
                               Container(
@@ -496,11 +482,10 @@ class _AllProductsScreenState extends State<AllProductsScreen> {
                                     ),
                                   ),
                                   Expanded(
-                                      flex: 2,
                                       child: Text(
-                                        searchList3[index].rewards,
-                                        style: suffixTextStyle,
-                                      ))
+                                    searchList3[index].rewards,
+                                    style: suffixTextStyle,
+                                  ))
                                 ]),
                               ),
                             ],

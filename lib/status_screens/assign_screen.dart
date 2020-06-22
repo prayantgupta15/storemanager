@@ -4,12 +4,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:storemanager/services/assignBoy.dart';
-import 'package:storemanager/services/getDeliveryBoysList.dart';
-import 'package:storemanager/status_screens/Faiulure/orderAssignFail.dart';
-import 'package:storemanager/status_screens/succefull/orderAssignSucess.dart';
-import 'package:storemanager/utils/common_utils.dart';
-import 'package:storemanager/utils/utils_importer.dart';
+import 'package:bazarmanager/services/assignBoy.dart';
+import 'package:bazarmanager/services/getDeliveryBoysList.dart';
+import 'package:bazarmanager/status_screens/Faiulure/orderAssignFail.dart';
+import 'package:bazarmanager/status_screens/succefull/orderAssignSucess.dart';
+import 'package:bazarmanager/utils/common_utils.dart';
+import 'package:bazarmanager/utils/utils_importer.dart';
 
 class AssignOrderScreen extends StatefulWidget {
   String Orderid;
@@ -143,17 +143,10 @@ class _AssignOrderScreenState extends State<AssignOrderScreen> {
                         },
                         child: Container(
                           margin: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 15),
+                              vertical: 10, horizontal: 35),
                           width: MediaQuery.of(context).size.width,
                           padding: EdgeInsets.all(18),
-                          decoration: BoxDecoration(
-                            color: Theme.of(context).primaryColorLight,
-                            border: Border.all(
-                              color: Theme.of(context).primaryColor,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(20),
-                          ),
+                          color: Colors.grey.withOpacity(0.2),
                           child: Column(
                             children: <Widget>[
                               //NAME
@@ -175,8 +168,7 @@ class _AssignOrderScreenState extends State<AssignOrderScreen> {
                                       ))
                                 ]),
                               ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
+                              SizedBox(height: 5),
 
                               Container(
 //                    color: Colors.blue,

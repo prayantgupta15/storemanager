@@ -1,15 +1,16 @@
 {
 
-  "TITLE_KEY": "bienvenue dans le gérant du magasin",
-  "LOGIN_BUTTON_KEY": "s'identifier",
+  "TITLE_KEY": "Bienvenue dans BazarManager",
+  "LOGIN_BUTTON_KEY": "S'identifier",
 
   "TODAY_ORDERS_KEY": "Les commandes d'aujourd'hui",
   "NOTHING_KEY": "Rien à montrer",
 
-  "MENU_KEY": "menu",
+  "MENU_KEY": "Menu",
   "MENU_DES": "Mettez à jour vos paramètres comme Profile Edit, Stock Update etc.",
 
   "EDIT_PROFILE_KEY": "Editer le profil ",
+  "UPDATE_PROFILE_BUTTON_KEY": "Mettre à jour le profil",
   "EDIT_PROFILE_DES_KEY":" Modifier les informations de votre compte",
   "EDIT_PROFILE_SUCCESSFUL_KEY": "Mise à jour du profil réussie",
   "EDIT_PROFILE_FAIL_KEY": "Échec de la mise à jour du profil",
@@ -21,13 +22,15 @@
   "PRODUCTS_DES_KEY": "Gérer tous les produits",
 
   "ALL_ORDERS_KEY": "Tous les ordres",
-  "ALL_ORDERS__DES_KEY": "Gérer toutes les commandes",
+  "ALL_ORDERS_DES_KEY": "Gérer toutes les commandes",
   "SELECT_DELIVERY_BOY": "Sélectionnez Livreur",
   "SELECT_DELIVERY_BOY_SUCCESSFUL_KEY": "Livreur attribué avec succès",
   "SELECT_DELIVERY_BOY_FAIL_KEY": "Impossible de choisir le livreur",
   "ORDER_DETAILS_KEY": "détails de la commande",
+  "ORDER_CANCELLED_KEY": "la commande a été annulée",
 
   "UPDATE_STOCK_KEY": "Mettre à jour le stock",
+  "UPDATE_STOCK_BUTTON_KEY": "MISE À JOUR DU STOCK",
   "UPDATE_STOCK_DES_KEY": "Gérer tout le stock",
   "UPDATE_STOCK_SUCCESSFUL_KEY": "Mise à jour du stock réussie",
   "UPDATE_STOCK_FAIL_KEY": "Échec de la mise à jour des stocks",

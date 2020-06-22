@@ -4,10 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:storemanager/services/getAllOrders.dart';
-import 'package:storemanager/services/getorderdetails.dart';
-import 'package:storemanager/utils/common_utils.dart';
-import 'package:storemanager/utils/utils_importer.dart';
+import 'package:bazarmanager/services/getorderdetails.dart';
+import 'package:bazarmanager/utils/common_utils.dart';
+import 'package:bazarmanager/utils/utils_importer.dart';
 
 class OrderDetailsScreen extends StatefulWidget {
   String orderid;
@@ -106,7 +105,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                         ),
                         SizedBox(width: 20),
                         Text(
-                          getTranslated(context, 'ORDER_DETAILS_KEY'),
+                          "Order Details",
                           style: TextStyle(
                               fontSize: 30,
                               fontWeight: FontWeight.bold,
@@ -138,7 +137,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                       },
                     ),
                     title: Text(
-                      getTranslated(context, 'ORDER_DETAILS_KEY'),
+                      "Order Details",
                       style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,
@@ -172,17 +171,10 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                       (context, index) {
                         return Container(
                           margin: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 15),
+                              vertical: 10, horizontal: 35),
                           width: MediaQuery.of(context).size.width,
                           padding: EdgeInsets.all(18),
-                          decoration: BoxDecoration(
-                            color: Theme.of(context).primaryColorLight,
-                            border: Border.all(
-                              color: Theme.of(context).primaryColor,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(20),
-                          ),
+                          color: Colors.grey.withOpacity(0.2),
                           child: Column(
                             children: <Widget>[
                               //STATUS
@@ -199,8 +191,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                   )
                                 ]),
                               ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
+                              SizedBox(height: 5),
 
                               //Product NAME
                               Container(
@@ -214,16 +205,13 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                     ),
                                   ),
                                   Expanded(
-                                      flex: 2,
                                       child: Text(
-                                        showInfo(
-                                            snapshot.data[index].productName),
-                                        style: suffixTextStyle,
-                                      ))
+                                    showInfo(snapshot.data[index].productName),
+                                    style: suffixTextStyle,
+                                  ))
                                 ]),
                               ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
+                              SizedBox(height: 5),
 
                               //Quantity
                               Container(
@@ -237,16 +225,14 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                     ),
                                   ),
                                   Expanded(
-                                      flex: 2,
                                       child: Text(
-                                        showInfo(snapshot.data[index].qty) +
-                                            showInfo(snapshot.data[index].unit),
-                                        style: suffixTextStyle,
-                                      ))
+                                    showInfo(snapshot.data[index].qty) +
+                                        showInfo(snapshot.data[index].unit),
+                                    style: suffixTextStyle,
+                                  ))
                                 ]),
                               ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
+                              SizedBox(height: 5),
 
                               //PRICE
                               Container(
@@ -260,15 +246,13 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                     ),
                                   ),
                                   Expanded(
-                                      flex: 2,
                                       child: Text(
-                                        showInfo(snapshot.data[index].price),
-                                        style: suffixTextStyle,
-                                      ))
+                                    showInfo(snapshot.data[index].price),
+                                    style: suffixTextStyle,
+                                  ))
                                 ]),
                               ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
+                              SizedBox(height: 5),
 
                               //TAX
                               Container(
@@ -281,15 +265,13 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                     ),
                                   ),
                                   Expanded(
-                                      flex: 2,
                                       child: Text(
-                                        showInfo(snapshot.data[index].tax),
-                                        style: suffixTextStyle,
-                                      ))
+                                    showInfo(snapshot.data[index].tax),
+                                    style: suffixTextStyle,
+                                  ))
                                 ]),
                               ),
-                              Divider(
-                                  color: Theme.of(context).primaryColorDark),
+                              SizedBox(height: 5),
 
                               //PRIDUCT IMAGE
 //                          CircleAvatar(
@@ -327,7 +309,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                         ),
                         SizedBox(width: 20),
                         Text(
-                          getTranslated(context, 'ORDER_DETAILS_KEY'),
+                          "Order Details",
                           style: TextStyle(
                               fontSize: 30,
                               fontWeight: FontWeight.bold,

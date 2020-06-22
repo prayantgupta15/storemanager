@@ -1,6 +1,6 @@
 {
 
-  "TITLE_KEY": "مرحبًا بك في Store Manager",
+  "TITLE_KEY": "مرحبًا بك في BazarManager",
   "LOGIN_BUTTON_KEY": "تسجيل الدخول",
 
   "TODAY_ORDERS_KEY": "أوامر اليوم",
@@ -8,12 +8,16 @@
 
   "MENU_KEY": "قائمة طعام",
   "MENU_DES": "قم بتحديث إعداداتك مثل تعديل الملف الشخصي وتحديث المخزون وما إلى ذلك.",
+
   "EDIT_PROFILE_KEY": "تعديل الملف الشخصي",
+  "UPDATE_PROFILE_BUTTON_KEY": "تحديث الملف",
   "EDIT_PROFILE_DES_KEY":"قم بتغيير معلومات حسابك",
   "EDIT_PROFILE_SUCCESSFUL_KEY": "تم تحديث الملف الشخصي بنجاح",
   "EDIT_PROFILE_FAIL_KEY": "فشل تحديث ملف التعريف",
+
   "APP_USERS_KEY": "مستخدمو التطبيق",
   "APP_USERS_DES_KEY": "إدارة جميع العملاء",
+
   "PRODUCTS_KEY": "منتجات",
   "PRODUCTS_DES_KEY": "إدارة جميع المنتجات",
 
@@ -23,8 +27,11 @@
   "SELECT_DELIVERY_BOY_SUCCESSFUL_KEY": "تم تعيين عامل التوصيل بنجاح",
   "SELECT_DELIVERY_BOY_FAIL_KEY": "فشل في اختيار عامل التوصيل",
   "ORDER_DETAILS_KEY": "تفاصيل الطلب",
+  "ORDER_CANCELLED_KEY": "تم إلغاء الطلب",
+
 
   "UPDATE_STOCK_KEY": "تحديث المخزون",
+  "UPDATE_STOCK_BUTTON_KEY": "تحديث الأسهم",
   "UPDATE_STOCK_DES_KEY": "إدارة جميع الأسهم",
   "UPDATE_STOCK_SUCCESSFUL_KEY": "تم تحديث المخزون بنجاح",
   "UPDATE_STOCK_FAIL_KEY": "فشل تحديث المخزون",

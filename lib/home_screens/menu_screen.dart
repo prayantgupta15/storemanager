@@ -1,17 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:storemanager/login_screen/login_screen.dart';
-import 'package:storemanager/login_screen/logout_screen.dart';
-import 'package:storemanager/setting_screen/all_orders_screen.dart';
-import 'package:storemanager/setting_screen/all_products_screen.dart';
-import 'package:storemanager/setting_screen/app_users_screeen.dart';
-import 'package:storemanager/setting_screen/edit_profile_screen.dart';
-import 'package:storemanager/raw_data.dart';
-import 'package:storemanager/setting_screen/language_screen.dart';
-import 'package:storemanager/setting_screen/stock_screen.dart';
-import 'package:storemanager/utils/common_utils.dart';
-import 'package:storemanager/utils/shared_preferences_util.dart';
-import 'package:storemanager/utils/utils_importer.dart';
+import 'package:bazarmanager/login_screen/login_screen.dart';
+import 'package:bazarmanager/login_screen/logout_screen.dart';
+import 'package:bazarmanager/setting_screen/all_orders_screen.dart';
+import 'package:bazarmanager/setting_screen/all_products_screen.dart';
+import 'package:bazarmanager/setting_screen/app_users_screeen.dart';
+import 'package:bazarmanager/setting_screen/edit_profile_screen.dart';
+import 'package:bazarmanager/raw_data.dart';
+import 'package:bazarmanager/setting_screen/language_screen.dart';
+import 'package:bazarmanager/setting_screen/stock_screen.dart';
+import 'package:bazarmanager/utils/common_utils.dart';
+import 'package:bazarmanager/utils/shared_preferences_util.dart';
+import 'package:bazarmanager/utils/utils_importer.dart';
 
 class MenuScreen extends StatefulWidget {
   @override
@@ -73,7 +73,7 @@ class _MenuScreenState extends State<MenuScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 0, 20, 10),
+        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
         child: CustomScrollView(
           slivers: <Widget>[
             SliverList(

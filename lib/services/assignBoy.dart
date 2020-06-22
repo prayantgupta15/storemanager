@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:storemanager/utils/utils_importer.dart';
+import 'package:bazarmanager/utils/utils_importer.dart';
 
 Future<bool> assignBoy({@required String Boyid, @required String orderid}) {
   Map<String, String> body = {"boy_id": Boyid, "order_id": orderid};

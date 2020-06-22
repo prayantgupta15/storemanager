@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:storemanager/home_screens/home_screen.dart';
-import 'package:storemanager/login_screen/login_screen.dart';
-import 'package:storemanager/utils/common_utils.dart';
-import 'package:storemanager/utils/shared_preferences_util.dart';
-import 'package:storemanager/utils/utils_importer.dart';
+import 'package:bazarmanager/home_screens/home_screen.dart';
+import 'package:bazarmanager/login_screen/login_screen.dart';
+import 'package:bazarmanager/utils/common_utils.dart';
+import 'package:bazarmanager/utils/shared_preferences_util.dart';
+import 'package:bazarmanager/utils/utils_importer.dart';
 
 class LoadingScreen extends StatefulWidget {
   @override
@@ -44,26 +44,26 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColorLight,
+      backgroundColor: Theme.of(context).primaryColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             CircleAvatar(
-              backgroundImage: AssetImage('assets/icons.png'),
-              backgroundColor: Theme.of(context).primaryColorDark,
+              backgroundImage: AssetImage('assets/splash.png'),
+              backgroundColor: Theme.of(context).primaryColor,
               radius: 80,
             ),
-            SizedBox(height: 20),
-            Text(
-              "Store Manager",
-              style: TextStyle(
-                fontSize: 40,
-                fontWeight: FontWeight.bold,
-                fontFamily: UtilsImporter().stringUtils.HKGrotesk,
-              ),
-            ),
-            CircularProgressIndicator(),
+//            SizedBox(height: 20),
+//            Text(
+//              "Store Manager",
+//              style: TextStyle(
+//                fontSize: 40,
+//                fontWeight: FontWeight.bold,
+//                fontFamily: UtilsImporter().stringUtils.HKGrotesk,
+//              ),
+//            ),
+//            CircularProgressIndicator(),
           ],
         ),
       ),

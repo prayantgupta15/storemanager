@@ -1,6 +1,6 @@
 {
 
-  "TITLE_KEY": "Bienvenida en gerente de tienda",
+  "TITLE_KEY": "Bienvenido a BazarManager",
   "LOGIN_BUTTON_KEY": "iniciar sesión",
 
   "TODAY_ORDERS_KEY": "Las ordenes de hoy",
@@ -8,23 +8,29 @@
 
   "MENU_KEY": "menú",
   "MENU_DES": "Actualice su configuración como Edición de perfil, Actualización de stock, etc.",
+
   "EDIT_PROFILE_KEY": "Editar perfil",
+  "UPDATE_PROFILE_BUTTON_KEY": "Actualización del perfil",
   "EDIT_PROFILE_DES_KEY":"Cambia la información de tu cuenta",
   "EDIT_PROFILE_SUCCESSFUL_KEY": "Actualización del perfil exitosa",
   "EDIT_PROFILE_FAIL_KEY": "Error de actualización de perfil",
+
   "APP_USERS_KEY": "Usuarios de la aplicación",
   "APP_USERS_DES_KEY": "Administrar todos los clientes",
+
   "PRODUCTS_KEY": "Productos",
   "PRODUCTS_DES_KEY": "Administra todos los productos",
 
   "ALL_ORDERS_KEY": "Todas las órdenes",
-  "ALL_ORDERS__DES_KEY": "Gestionar todos los pedidos",
+  "ALL_ORDERS_DES_KEY": "Gestionar todos los pedidos",
   "SELECT_DELIVERY_BOY": "Seleccionar repartidor",
   "SELECT_DELIVERY_BOY_SUCCESSFUL_KEY": "Repartidor asignado con éxito",
   "SELECT_DELIVERY_BOY_FAIL_KEY": "Error al elegir repartidor",
   "ORDER_DETAILS_KEY": "Detalles del pedido",
+  "ORDER_CANCELLED_KEY": "orden ha sido cancelada",
 
   "UPDATE_STOCK_KEY": "Actualizar stock",
+  "UPDATE_STOCK_BUTTON_KEY": "ACTUALIZAR STOCK",
   "UPDATE_STOCK_DES_KEY": "Gestionar todo el stock",
   "UPDATE_STOCK_SUCCESSFUL_KEY": "Actualización de existencias exitosa",
   "UPDATE_STOCK_FAIL_KEY": "Error de actualización de stock",

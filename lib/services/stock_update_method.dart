@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:storemanager/models/stock_update.dart';
-import 'package:storemanager/utils/utils_importer.dart';
+import 'package:bazarmanager/models/stock_update.dart';
+import 'package:bazarmanager/utils/utils_importer.dart';
 
 Future<bool> stockUpdate(StockUpdateItem stockUpdateItem) {
   print(stockUpdateItem.toJson());

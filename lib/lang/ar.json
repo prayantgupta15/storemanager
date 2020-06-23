@@ -22,7 +22,7 @@
   "PRODUCTS_DES_KEY": "إدارة جميع المنتجات",
 
   "ALL_ORDERS_KEY": "جميع الطلبات",
-  "ALL_ORDERS__DES_KEY": "إدارة جميع الطلبات",
+  "ALL_ORDERS_DES_KEY": "إدارة جميع الطلبات",
   "SELECT_DELIVERY_BOY": "حدد توصيل الصبي",
   "SELECT_DELIVERY_BOY_SUCCESSFUL_KEY": "تم تعيين عامل التوصيل بنجاح",
   "SELECT_DELIVERY_BOY_FAIL_KEY": "فشل في اختيار عامل التوصيل",

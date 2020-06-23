@@ -18,11 +18,7 @@ class OrderDetailsScreen extends StatefulWidget {
 class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
   checkConnection() async {
     var status = await checkInternet();
-    Fluttertoast.showToast(
-      msg: "Refreshing",
-      //textColor: Colors.blue,
-      toastLength: Toast.LENGTH_LONG,
-    );
+
     debugPrint("make request");
     if (status == DataConnectionStatus.disconnected) {
       showDialog(

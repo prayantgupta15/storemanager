@@ -23,11 +23,7 @@ class StockScreen extends StatefulWidget {
 class _StockScreenState extends State<StockScreen> {
   checkConnection() async {
     var status = await checkInternet();
-    Fluttertoast.showToast(
-      msg: "Refreshing",
-      //textColor: Colors.blue,
-      toastLength: Toast.LENGTH_LONG,
-    );
+
     debugPrint("make request");
     if (status == DataConnectionStatus.disconnected) {
       showDialog(

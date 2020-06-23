@@ -20,11 +20,7 @@ class EditProfilescreen extends StatefulWidget {
 class _EditProfilescreenState extends State<EditProfilescreen> {
   checkConnection() async {
     var status = await checkInternet();
-    Fluttertoast.showToast(
-      msg: "Refreshing",
-      //textColor: Colors.blue,
-      toastLength: Toast.LENGTH_LONG,
-    );
+
     debugPrint("make request");
     if (status == DataConnectionStatus.disconnected) {
       showDialog(
